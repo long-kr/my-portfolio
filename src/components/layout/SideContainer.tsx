@@ -3,12 +3,12 @@ type HomeLayoutProps = {
   bgColor?: string;
 };
 
-const HomeLayout: React.FC<HomeLayoutProps> = ({ children, bgColor }) => {
+const SideContainer: React.FC<HomeLayoutProps> = ({ children, bgColor }) => {
   return (
     <div
       className={`
       grid
-      grid-cols-1 sm:grid-cols-4 grid-flow-col
+      grid-cols-1 sm:grid-cols-5 grid-flow-col
       bg-${bgColor}`}
     >
       {children}
@@ -16,4 +16,4 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ children, bgColor }) => {
   );
 };
 
-export default HomeLayout;
+export default SideContainer;

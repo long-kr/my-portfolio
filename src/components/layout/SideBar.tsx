@@ -1,14 +1,15 @@
 import Image from "next/image";
 import React from "react";
+import Navigation from "../nav/Navigation";
 
 const navItems = [
   {
     title: "Home",
-    link: "#home",
+    link: "./",
   },
   {
     title: "About",
-    link: "#about",
+    link: "/about",
   },
   {
     title: "Projects",
@@ -22,28 +23,18 @@ const navItems = [
 
 const SideBar: React.FC = () => {
   return (
-    <div className="h-full text-[#999999] text-center">
-      <header className="py-12 flex justify-center">
+    <div className="h-full">
+      <header className="flex justify-center py-12">
         <Image
           src="/avatar.jpg"
           alt="avatar"
           width={228}
           height={228}
-          className=" bg-black"
+          className="bg-white"
         />
       </header>
 
-      <nav>
-        <ul>
-          {navItems.map((item) => (
-            <li className="mb-2" key={item.title}>
-              <a className="hover:text-[#333333]" href={item.link}>
-                {item.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <Navigation navItems={navItems} />
     </div>
   );
 };

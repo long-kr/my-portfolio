@@ -1,3 +1,5 @@
+import SideBar from "@/components/layout/SideBar";
+import SideContainer from "@/components/layout/SideContainer";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -26,7 +28,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SideContainer bgColor="#DDDDDD">
+          <SideBar />
+          {children}
+        </SideContainer>
       </body>
     </html>
   );
