@@ -1,11 +1,10 @@
 import HomeLayout from "@/components/layout/HomeLayout";
+import SideBar from "@/components/layout/SideBar";
 
 export default function Home() {
   return (
-    <HomeLayout>
-      <div className="col-span-1">
-        <div className="container h-screen">Hello</div>
-      </div>
+    <HomeLayout bgColor="#DDDDDD">
+      <SideBar />
       <div className="col-span-2">
         <div className="bg-black h-screen">World</div>
       </div>
