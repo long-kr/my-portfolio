@@ -1,5 +1,6 @@
-import SideBar from "@/components/layout/SideBar";
+import MainContainer from "@/components/layout/MainContainer";
 import SideContainer from "@/components/layout/SideContainer";
+import SideBar from "@/components/sidebar/SideBar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -28,9 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SideContainer bgColor="#DDDDDD">
-          <SideBar />
-          {children}
+        <SideContainer>
+          <SideBar className="col-span-1" />
+
+          <MainContainer className="col-span-3">{children}</MainContainer>
         </SideContainer>
       </body>
     </html>
