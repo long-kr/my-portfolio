@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
+import BottomContainer from "./BottomContainer";
 
 type MainContainerProps = {
   children: React.ReactNode;
@@ -14,11 +15,7 @@ const MainContainer: React.FC<MainContainerProps> = ({
     <main className={cn("h-full", className)}>
       <section id="">{children}</section>
 
-      <section className="flex justify-center py-14">
-        <a href="#" className="hover:text-black">
-          Back to top
-        </a>
-      </section>
+      <BottomContainer />
     </main>
   );
 };
