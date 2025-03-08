@@ -9,7 +9,7 @@ type NavItem = {
 
 const Navigation: React.FC<NavItem> = ({ navItems }) => {
   return (
-    <nav className="mx-auto w-2/5 text-[#999999]">
+    <nav className="mx-auto w-2/5">
       <ul>
         {navItems.map((item) => (
           <li className="pb-5 pt-0" key={item.title}>
