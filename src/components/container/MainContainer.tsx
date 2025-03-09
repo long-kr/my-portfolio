@@ -12,7 +12,7 @@ const MainContainer: React.FC<MainContainerProps> = ({
   className,
 }) => {
   return (
-    <main className={cn("h-full", className)}>
+    <main className={cn(className)}>
       <section id="">{children}</section>
 
       <BottomContainer />

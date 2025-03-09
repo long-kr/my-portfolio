@@ -1,4 +1,4 @@
-import profilePic from "@/assests/image/Screen (30).jpg";
+import profilePic from "@/assests/image/sig.jpg";
 import Navigation from "@/components/sidebar/Navigation";
 import { cn } from "@/lib/utils";
 import React from "react";
@@ -29,11 +29,11 @@ type SideBarProps = {
 
 const SideBar: React.FC<SideBarProps> = ({ className }) => {
   return (
-    <div className={cn("h-full", className)}>
+    <aside className={cn(className)}>
       <SideBarHeader image={profilePic} />
 
       <Navigation navItems={navItems} />
-    </div>
+    </aside>
   );
 };
 

@@ -3,7 +3,7 @@ import AboutPageLayout from "@/components/layout/AboutPageLayout";
 const About = () => {
   return (
     <AboutPageLayout>
-      <div>name</div>
+      <div className="">name</div>
 
       <div>description</div>
     </AboutPageLayout>
