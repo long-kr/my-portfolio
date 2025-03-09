@@ -4,6 +4,7 @@ import React from "react";
 interface ButtonProps {
   onClick: () => void;
   children: string;
+  icon?: React.ReactNode;
   className?: string;
   disabled?: boolean;
 }
@@ -11,12 +12,13 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
   onClick,
   children,
+  icon,
   className,
   disabled = false,
 }) => {
   return (
     <button className={cn(className)} onClick={onClick} disabled={disabled}>
-      {children}
+      {icon} {children}
     </button>
   );
 };
