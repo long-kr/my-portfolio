@@ -1,5 +1,5 @@
-import MainContainer from "@/components/layout/MainContainer";
-import SideContainer from "@/components/layout/SideContainer";
+import MainContainer from "@/components/container/MainContainer";
+import SideContainer from "@/components/container/SideContainer";
 import SideBar from "@/components/sidebar/SideBar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
