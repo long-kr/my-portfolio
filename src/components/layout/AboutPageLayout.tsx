@@ -3,7 +3,9 @@ type AboutPageLayoutProps = {
 };
 
 const AboutPageLayout: React.FC<AboutPageLayoutProps> = ({ children }) => {
-  return <div className="flex h-screen w-full flex-row gap-5">{children}</div>;
+  return (
+    <div className="flex h-screen w-full flex-row gap-5 py-20">{children}</div>
+  );
 };
 
 export default AboutPageLayout;
