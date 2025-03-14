@@ -2,7 +2,7 @@
 
 import Button from "../Button";
 
-const BottomContainer = () => {
+export const BottomContainer = () => {
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -25,5 +25,3 @@ const BottomContainer = () => {
     </footer>
   );
 };
-
-export default BottomContainer;

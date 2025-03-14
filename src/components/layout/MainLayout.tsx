@@ -5,8 +5,9 @@ type MainLayoutProps = {
   className?: string;
 };
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children, className }) => {
+export const MainLayout: React.FC<MainLayoutProps> = ({
+  children,
+  className,
+}) => {
   return <div className={cn(className)}>{children}</div>;
 };
-
-export default MainLayout;

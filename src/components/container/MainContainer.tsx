@@ -1,13 +1,13 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import BottomContainer from "./BottomContainer";
+import { BottomContainer } from ".";
 
 type MainContainerProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-const MainContainer: React.FC<MainContainerProps> = ({
+export const MainContainer: React.FC<MainContainerProps> = ({
   children,
   className,
 }) => {
@@ -19,5 +19,3 @@ const MainContainer: React.FC<MainContainerProps> = ({
     </main>
   );
 };
-
-export default MainContainer;
