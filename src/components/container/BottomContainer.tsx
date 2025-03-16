@@ -9,19 +9,19 @@ export const BottomContainer = () => {
 
   return (
     <footer>
-      <section className="flex justify-center py-16">
+      <div className="flex justify-center py-16">
         <Button
           onClick={handleClick}
           icon={<span>↑</span>}
-          className="hover:text-[#666666]"
+          className="hover:text-secondary"
         >
           Back to top
         </Button>
-      </section>
+      </div>
 
-      <section className="flex justify-center py-16">
+      <div className="flex justify-center py-16">
         <p>Powered by Adobe Portfolio</p>
-      </section>
+      </div>
     </footer>
   );
 };

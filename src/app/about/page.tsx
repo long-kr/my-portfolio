@@ -9,7 +9,7 @@ const About = () => {
   return (
     <>
       <div className="flex flex-col justify-end gap-5">
-        <h1>Long T Huynh</h1>
+        <h2>Long T Huynh</h2>
 
         <p>Fullstack Developer</p>
 
