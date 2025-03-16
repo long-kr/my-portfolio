@@ -1,4 +1,3 @@
-import { MainLayout } from "@/components/container";
 import { MainContainer } from "@/components/container/MainContainer";
 import SideBar from "@/components/sidebar/SideBar";
 import type { Metadata } from "next";
@@ -27,15 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} text-[#999999] antialiased`}
+        className={` ${geistSans.variable} ${geistMono.variable} grid grid-flow-col grid-cols-1 text-[#999999] antialiased sm:grid-cols-5`}
       >
-        <MainLayout className="grid grid-flow-col grid-cols-1 sm:grid-cols-5">
-          <SideBar className="col-span-1 h-full" />
+        <SideBar className="col-span-1 h-full" />
 
-          <MainContainer className="col-span-3 h-full">
-            {children}
-          </MainContainer>
-        </MainLayout>
+        <MainContainer className="col-span-3 h-full">{children}</MainContainer>
       </body>
     </html>
   );

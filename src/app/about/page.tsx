@@ -1,14 +1,13 @@
 "use client";
 
 import { IconKeys, icons } from "@/assests/svg";
-import AboutPageLayout from "@/components/layout/AboutPageLayout";
 import { SVGIcon } from "@/components/ui/icon";
 
 const iconKeys = Object.keys(icons) as Array<IconKeys>;
 
 const About = () => {
   return (
-    <AboutPageLayout>
+    <>
       <div className="flex flex-col justify-end gap-5">
         <h1>Long T Huynh</h1>
 
@@ -31,7 +30,7 @@ const About = () => {
           ))}
         </div>
       </div>
-    </AboutPageLayout>
+    </>
   );
 };
 

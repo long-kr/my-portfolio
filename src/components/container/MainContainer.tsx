@@ -13,7 +13,7 @@ export const MainContainer: React.FC<MainContainerProps> = ({
 }) => {
   return (
     <main className={cn(className)}>
-      <section id="">{children}</section>
+      <section>{children}</section>
 
       <BottomContainer />
     </main>
