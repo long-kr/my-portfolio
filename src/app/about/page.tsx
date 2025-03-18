@@ -1,34 +1,50 @@
 "use client";
 
-import { IconKeys, icons } from "@/assests/svg";
-import { SVGIcon } from "@/components/ui/icon";
+import { IconKeys } from "@/assests/svg";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
+import { TechnologiCard } from "@/components/card/TechnologiCard";
 
-const iconKeys = Object.keys(icons) as Array<IconKeys>;
+const technologies = {
+  language: ["java", "javascript", "typescript", "python"] as IconKeys[],
+  frontend: [
+    "react",
+    "nextjs",
+    "tailwindcss",
+    "jest",
+    "playwright",
+  ] as IconKeys[],
+  backend: ["expressjs", "springboot"] as IconKeys[],
+  database: ["mongoDB", "postgreSQL", "firebase"] as IconKeys[],
+  tool: ["aws", "git", "bash", "docker", "postman"] as IconKeys[],
+};
 
 const About = () => {
   return (
     <>
-      <div className="flex flex-col justify-end gap-5">
-        <h2>Long T Huynh</h2>
+      <div className="flex flex-col justify-end">
+        <Card className="h-fit border-none shadow-none">
+          <CardHeader>
+            <CardTitle>Hi, I&apos;m Long T Huynh</CardTitle>
+          </CardHeader>
 
-        <p>Fullstack Developer</p>
+          <CardContent>
+            <p>I&apos;m a Fullstack Developer</p>
+          </CardContent>
 
-        <p>Vietnamese, A developer obssessed with solving problems.</p>
+          <CardContent>
+            <p>Vietnamese, A developer obssessed with solving problems.</p>
+          </CardContent>
+        </Card>
       </div>
 
       <div>
-        <h2>Tech stack</h2>
-
-        <div className="flex flex-row gap-5">
-          {iconKeys.map((iconKey) => (
-            <SVGIcon
-              key={iconKey}
-              iconKey={iconKey}
-              svgProps={{ className: "w-10 h-10" }}
-              className="bg-slate-800"
-            />
-          ))}
-        </div>
+        {Object.entries(technologies).map(([key, value]) => (
+          <TechnologiCard
+            key={key}
+            title={key.charAt(0).toUpperCase() + key.slice(1, key.length)}
+            icons={value}
+          />
+        ))}
       </div>
     </>
   );
