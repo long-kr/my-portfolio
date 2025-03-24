@@ -1,6 +1,7 @@
 "use client";
 
 import { IconKeys } from "@/assests/svg";
+import { toTitleCase } from "@/lib/utils";
 import { SVGIcon } from "../ui/icon";
 import {
   Tooltip,
@@ -19,12 +20,12 @@ export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
   return (
     <Card className="h-fit gap-5 border-none shadow-none">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle>{toTitleCase(title)}</CardTitle>
       </CardHeader>
 
-      <CardContent role="ul" className="flex flex-wrap gap-5">
+      <CardContent role="ul" className="flex list-none flex-wrap gap-5">
         {icons.map((iconKey) => (
-          <li key={iconKey} className="justify-center-center flex h-10 w-20">
+          <li key={iconKey}>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -34,8 +35,8 @@ export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
                     className="self-center"
                   />
                 </TooltipTrigger>
-                <TooltipContent className="border border-black bg-black bg-opacity-80">
-                  <p>{iconKey}</p>
+                <TooltipContent className="bg-milk-white shadow">
+                  {toTitleCase(iconKey)}
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

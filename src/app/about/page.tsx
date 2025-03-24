@@ -39,11 +39,7 @@ const About = () => {
 
       <div>
         {Object.entries(technologies).map(([key, value]) => (
-          <TechnologiCard
-            key={key}
-            title={key.charAt(0).toUpperCase() + key.slice(1, key.length)}
-            icons={value}
-          />
+          <TechnologiCard key={key} title={key} icons={value} />
         ))}
       </div>
     </>
