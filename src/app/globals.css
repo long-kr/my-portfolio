@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #99BC85;
+  --secondary-color: #E4EFE7;
+  --light-off-white-color: #FDFAF6;
+  --milk-white-color: #FAF1E6;
+}
 
 html, body {
   min-height: 100%;
+  color: var(--primary-color);
+  background-color: var(--light-off-white-color);
 }

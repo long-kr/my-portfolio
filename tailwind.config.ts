@@ -11,14 +11,10 @@ export default {
   theme: {
   	extend: {
   		colors: {
-  			
-  			primary: {
-  				DEFAULT: '#999999',
-  			},
-  			secondary: {
-  				DEFAULT: '#666666',
-  			}
-  			
+  			primary: "var(--primary-color)",
+  			secondary: "var(--secondary-color)",
+        "light-off-white": "var(--light-off-white-color)",
+        "milk-white": "var(--milk-white-color)",
   	}
   },
   plugins: [tailwindcssAnimate],

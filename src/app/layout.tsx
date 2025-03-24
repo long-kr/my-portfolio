@@ -26,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${geistSans.variable} ${geistMono.variable} grid grid-flow-col grid-cols-1 text-primary antialiased sm:grid-cols-5`}
+        className={` ${geistSans.variable} ${geistMono.variable} grid w-full grid-flow-col grid-cols-1 antialiased sm:grid-cols-5`}
       >
         <SideBar className="col-span-1 h-full" />
 
         <MainContainer className="col-span-3 h-full">{children}</MainContainer>
+
+        <div className="col-span-1"></div>
       </body>
     </html>
   );
