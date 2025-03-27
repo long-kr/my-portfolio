@@ -2,10 +2,10 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { BottomContainer } from ".";
 
-type MainContainerProps = {
+interface MainContainerProps {
   children: React.ReactNode;
   className?: string;
-};
+}
 
 export const MainContainer: React.FC<MainContainerProps> = ({
   children,

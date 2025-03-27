@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-type NavItem = {
+interface NavItem {
   navItems: Array<{
     title: string;
     link: string;
   }>;
-};
+}
 
-const Navigation: React.FC<NavItem> = ({ navItems }) => {
+export const Navigation: React.FC<NavItem> = ({ navItems }) => {
   return (
     <nav className="mx-auto w-2/5">
       <ul>
@@ -25,5 +25,3 @@ const Navigation: React.FC<NavItem> = ({ navItems }) => {
     </nav>
   );
 };
-
-export default Navigation;

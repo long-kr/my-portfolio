@@ -1,7 +1,7 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
-import { Button, Input, Textarea } from "@/components/ui";
+import { Button, Card, Input, Textarea } from "@/components/ui";
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import { toast } from "sonner";
 

@@ -21,7 +21,7 @@ export const BottomContainer = () => {
       </div>
 
       <div className="flex justify-center py-16">
-        <p>Powered by Adobe Portfolio</p>
+        <p>Long Huynh&apos;s Portfolio</p>
       </div>
     </footer>
   );

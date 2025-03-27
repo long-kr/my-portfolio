@@ -1,8 +1,10 @@
+import profilePicDark from "@/assests/image/sig dark.jpg";
 import profilePic from "@/assests/image/sig.jpg";
-import Navigation from "@/components/sidebar/Navigation";
 import { cn } from "@/lib/utils";
+
 import React from "react";
-import SideBarHeader from "./SideBarHeader";
+import { Navigation } from "./Navigation";
+import { SideBarHeader } from "./SideBarHeader";
 
 const navItems = [
   {
@@ -23,18 +25,16 @@ const navItems = [
   },
 ];
 
-type SideBarProps = {
+interface SideBarProps {
   className?: string;
-};
+}
 
-const SideBar: React.FC<SideBarProps> = ({ className }) => {
+export const SideBar: React.FC<SideBarProps> = ({ className }) => {
   return (
     <aside className={cn(className)}>
-      <SideBarHeader image={profilePic} />
+      <SideBarHeader lightImage={profilePic} darkImage={profilePicDark} />
 
       <Navigation navItems={navItems} />
     </aside>
   );
 };
-
-export default SideBar;
