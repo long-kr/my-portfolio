@@ -1,23 +1,21 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import BottomContainer from "./BottomContainer";
+import { BottomContainer } from ".";
 
 type MainContainerProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-const MainContainer: React.FC<MainContainerProps> = ({
+export const MainContainer: React.FC<MainContainerProps> = ({
   children,
   className,
 }) => {
   return (
-    <main className={cn("h-full", className)}>
-      <section id="">{children}</section>
+    <main className={cn(className)}>
+      {children}
 
       <BottomContainer />
     </main>
   );
 };
-
-export default MainContainer;

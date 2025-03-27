@@ -6,7 +6,7 @@ import {
   CardContent,
   CardDescription,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/card/card";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useState } from "react";

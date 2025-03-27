@@ -1,29 +1,28 @@
 "use client";
 
-import Button from "../Button";
+import { Button } from "@/components/ui";
 
-const BottomContainer = () => {
+export const BottomContainer = () => {
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <footer>
-      <section className="flex justify-center py-16">
+      <div className="flex justify-center py-16">
         <Button
           onClick={handleClick}
           icon={<span>↑</span>}
-          className="hover:text-[#666666]"
+          className="hover:text-secondary"
+          variant="ghost"
         >
           Back to top
         </Button>
-      </section>
+      </div>
 
-      <section className="flex justify-center py-16">
+      <div className="flex justify-center py-16">
         <p>Powered by Adobe Portfolio</p>
-      </section>
+      </div>
     </footer>
   );
 };
-
-export default BottomContainer;

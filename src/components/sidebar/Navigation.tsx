@@ -14,7 +14,7 @@ const Navigation: React.FC<NavItem> = ({ navItems }) => {
         {navItems.map((item) => (
           <li className="pb-5 pt-0" key={item.title}>
             <Link
-              className="font-bold hover:font-normal hover:text-[#333333]"
+              className="font-bold hover:font-normal hover:text-secondary"
               href={item.link}
             >
               {item.title}
