@@ -1,5 +1,3 @@
-"use client";
-
 import { IconKeys } from "@/assests/svg";
 import { toTitleCase } from "@/lib/utils";
 import { SVGIcon } from "../ui/icon";
@@ -46,3 +44,5 @@ export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
     </Card>
   );
 };
+
+TechnologiCard.displayName = "TechnologiCard";
