@@ -1,5 +1,4 @@
-import MainContainer from "@/components/layout/MainContainer";
-import SideContainer from "@/components/layout/SideContainer";
+import { MainContainer } from "@/components/container/MainContainer";
 import SideBar from "@/components/sidebar/SideBar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -27,13 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${geistSans.variable} ${geistMono.variable} grid w-full grid-flow-col grid-cols-1 antialiased sm:grid-cols-5`}
       >
-        <SideContainer>
-          <SideBar className="col-span-1" />
+        <SideBar className="col-span-1 h-full" />
 
-          <MainContainer className="col-span-3">{children}</MainContainer>
-        </SideContainer>
+        <MainContainer className="col-span-3 h-full">{children}</MainContainer>
+
+        <div className="col-span-1"></div>
       </body>
     </html>
   );
