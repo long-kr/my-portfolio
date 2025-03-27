@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "../Button";
+import { Button } from "@/components/ui";
 
 export const BottomContainer = () => {
   const handleClick = () => {
@@ -14,6 +14,7 @@ export const BottomContainer = () => {
           onClick={handleClick}
           icon={<span>↑</span>}
           className="hover:text-secondary"
+          variant="ghost"
         >
           Back to top
         </Button>
