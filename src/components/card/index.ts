@@ -1,2 +1,4 @@
 export * from "./card";
-export * from "./ProjectCard";
+export { ProjectCard } from './ProjectCard';
+export { TechnologiCard } from './TechnologiCard';
+
