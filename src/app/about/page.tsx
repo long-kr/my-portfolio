@@ -1,6 +1,6 @@
 import { IconKeys } from "@/assests/svg";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
 import { TechnologiCard } from "@/components/card/TechnologiCard";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui";
 
 const technologies = {
   language: ["java", "javascript", "typescript", "python"] as IconKeys[],
