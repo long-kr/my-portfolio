@@ -6,7 +6,7 @@ import { useIsClient } from "@/hook/useIsClient";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-const SideBarHeader = () => {
+export const SideBarHeader = () => {
   const { resolvedTheme } = useTheme();
   const isClient = useIsClient();
 
@@ -27,5 +27,3 @@ const SideBarHeader = () => {
     </header>
   );
 };
-
-export default SideBarHeader;
