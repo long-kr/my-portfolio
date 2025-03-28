@@ -2,6 +2,7 @@
 
 import { IconKeys } from "@/assests/svg";
 import { toTitleCase } from "@/lib/utils";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { SVGIcon } from "../ui/icon";
 import {
   Tooltip,
@@ -9,12 +10,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "../ui/tooltip";
-import { Card, CardContent, CardHeader, CardTitle } from "./card";
 
-type TechnologiCardProps = {
+interface TechnologiCardProps {
   title: string;
   icons?: IconKeys[];
-};
+}
 
 export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
   return (
@@ -46,3 +46,5 @@ export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
     </Card>
   );
 };
+
+TechnologiCard.displayName = "TechnologiCard";

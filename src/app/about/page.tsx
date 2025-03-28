@@ -1,5 +1,3 @@
-"use client";
-
 import { IconKeys } from "@/assests/svg";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
 import { TechnologiCard } from "@/components/card/TechnologiCard";
@@ -37,7 +35,7 @@ const About = () => {
         </Card>
       </div>
 
-      <div>
+      <div className="flex flex-col justify-between gap-2">
         {Object.entries(technologies).map(([key, value]) => (
           <TechnologiCard key={key} title={key} icons={value} />
         ))}

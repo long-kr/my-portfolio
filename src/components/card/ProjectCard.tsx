@@ -1,50 +1,57 @@
 "use client";
 
-import pic from "@/assests/image/Screen (30).jpg";
+import { IconKeys } from "@/assests/svg";
+import { toTitleCase } from "@/lib/utils";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { SVGIcon } from "../ui/icon";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/card/card";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { useState } from "react";
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../ui/tooltip";
 
-type ProjectCardProps = React.ComponentProps<typeof Card>;
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  icons?: IconKeys[];
+}
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ className, ...props }) => {
-  const [isHover, setIsHover] = useState(false);
-
+export const ProjectCard = ({
+  title,
+  description,
+  icons = [],
+}: ProjectCardProps) => {
   return (
-    <Card
-      {...props}
-      className={cn(className)}
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-    >
-      {isHover ? (
-        <CardContent className="flex min-h-full flex-col p-0 text-center">
-          <CardTitle className="text-xl">Project Title</CardTitle>
-          <CardDescription className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </CardDescription>
-        </CardContent>
-      ) : (
-        <CardContent className="p-0">
-          <Image
-            src={pic}
-            alt="Project Image"
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-          />
-        </CardContent>
-      )}
+    <Card className="h-fit gap-5 border-none shadow-none">
+      <CardHeader>
+        <CardTitle>{toTitleCase(title)}</CardTitle>
+      </CardHeader>
+
+      <CardContent role="ul" className="flex list-none flex-wrap gap-5">
+        {icons.map((iconKey) => (
+          <li key={iconKey}>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <SVGIcon
+                    iconKey={iconKey}
+                    svgProps={{ className: "w-10 h-10" }}
+                    className="self-center"
+                  />
+                </TooltipTrigger>
+                <TooltipContent className="bg-milk-white shadow">
+                  {toTitleCase(iconKey)}
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </li>
+        ))}
+      </CardContent>
+
+      <CardContent>
+        <p>{description}</p>
+      </CardContent>
     </Card>
   );
 };
-
-export default ProjectCard;
