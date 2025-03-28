@@ -1,57 +1,53 @@
 "use client";
 
-import { IconKeys } from "@/assests/svg";
-import { toTitleCase } from "@/lib/utils";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { SVGIcon } from "../ui/icon";
+import pic from "@/assests/image/Screen (30).jpg";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "../ui/tooltip";
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "@/components/card/card";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { useState } from "react";
 
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  icons?: IconKeys[];
+interface ProjectCardProps extends React.ComponentProps<typeof Card> {
+  title?: string;
+  description?: string;
 }
 
-export const ProjectCard = ({
-  title,
-  description,
-  icons = [],
-}: ProjectCardProps) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  className,
+  title = "Project Title",
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  ...props
+}) => {
+  const [isHover, setIsHover] = useState(false);
+
   return (
-    <Card className="h-fit gap-5 border-none shadow-none">
-      <CardHeader>
-        <CardTitle>{toTitleCase(title)}</CardTitle>
-      </CardHeader>
-
-      <CardContent role="ul" className="flex list-none flex-wrap gap-5">
-        {icons.map((iconKey) => (
-          <li key={iconKey}>
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <SVGIcon
-                    iconKey={iconKey}
-                    svgProps={{ className: "w-10 h-10" }}
-                    className="self-center"
-                  />
-                </TooltipTrigger>
-                <TooltipContent className="bg-milk-white shadow">
-                  {toTitleCase(iconKey)}
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </li>
-        ))}
-      </CardContent>
-
-      <CardContent>
-        <p>{description}</p>
-      </CardContent>
+    <Card
+      {...props}
+      className={cn(className)}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
+      {isHover ? (
+        <CardContent className="flex min-h-full flex-col p-0 text-center">
+          <CardTitle className="text-xl">{title}</CardTitle>
+          <CardDescription className="text-sm">{description}</CardDescription>
+        </CardContent>
+      ) : (
+        <CardContent className="p-0">
+          <Image
+            src={pic}
+            alt="Project Image"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
+        </CardContent>
+      )}
     </Card>
   );
 };

@@ -1,5 +1,5 @@
 import { MainContainer } from "@/components/container/MainContainer";
-import SideBar from "@/components/sidebar/SideBar";
+import { SideBar } from "@/components/sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import type { Metadata } from "next";
