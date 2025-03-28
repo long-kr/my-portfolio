@@ -1,4 +1,3 @@
-import profilePic from "@/assests/image/sig.jpg";
 import Navigation from "@/components/sidebar/Navigation";
 import { cn } from "@/lib/utils";
 import React from "react";
@@ -30,7 +29,7 @@ type SideBarProps = {
 const SideBar: React.FC<SideBarProps> = ({ className }) => {
   return (
     <aside className={cn(className)}>
-      <SideBarHeader image={profilePic} />
+      <SideBarHeader />
 
       <Navigation navItems={navItems} />
     </aside>
