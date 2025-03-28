@@ -1,12 +1,7 @@
 "use client";
 
 import pic from "@/assests/image/Screen (30).jpg";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/card/card";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useState } from "react";
@@ -47,4 +42,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ className, ...props }) => {
   );
 };
 
-export default ProjectCard;
+export { ProjectCard };
