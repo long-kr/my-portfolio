@@ -1,13 +1,16 @@
 import { IconKeys } from "@/assests/svg";
 import { toTitleCase } from "@/lib/utils";
-import { SVGIcon } from "../ui/icon";
 import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  SVGIcon,
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../ui/tooltip";
-import { Card, CardContent, CardHeader, CardTitle } from "./card";
+} from "../ui";
 
 type TechnologiCardProps = {
   title: string;

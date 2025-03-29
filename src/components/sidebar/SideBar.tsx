@@ -1,8 +1,7 @@
-import profilePic from "@/assests/image/sig.jpg";
 import Navigation from "@/components/sidebar/Navigation";
 import { cn } from "@/lib/utils";
 import React from "react";
-import SideBarHeader from "./SideBarHeader";
+import { SideBarHeader } from "./SideBarHeader";
 
 const navItems = [
   {
@@ -23,18 +22,14 @@ const navItems = [
   },
 ];
 
-type SideBarProps = {
-  className?: string;
-};
-
-const SideBar: React.FC<SideBarProps> = ({ className }) => {
+export const SideBar: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  className,
+}) => {
   return (
     <aside className={cn(className)}>
-      <SideBarHeader image={profilePic} />
+      <SideBarHeader />
 
       <Navigation navItems={navItems} />
     </aside>
   );
 };
-
-export default SideBar;
