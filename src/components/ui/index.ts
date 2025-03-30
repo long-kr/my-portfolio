@@ -1,3 +1,5 @@
+export { AnimatedCircle } from './animated-circle';
+export { AnimatedText } from './animated-text';
 export { Button } from './button';
 export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './card';
 export { SVGIcon } from './icon';
