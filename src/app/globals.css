@@ -43,6 +43,27 @@
     --neutral-700: #6A8B5A;
     --neutral-800: #5A7B4A;
     --neutral-900: #4A6B3A;
+
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -85,6 +106,79 @@
     --neutral-700: #5A7B4A;
     --neutral-800: #4A6B3A;
     --neutral-900: #3A5B2A;
+
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes morphRadius {
+  0% {
+    border-radius: 50% 55% 45% 40%;
+  }
+  25% {
+    border-radius: 52% 48% 55% 45% ;
+  }
+  50% {
+    border-radius: 58% 42% 55% 45% ;
+  }
+  75% {
+    border-radius: 55% 45% 50% 50% ;
+  }
+  100% {
+    border-radius: 50% 55% 45% 40%;
+  }
+}
+
+@keyframes colorCycle {
+  0% {
+    border-color: #FF6B6B;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+  }
+  25% {
+    border-color: #cadb35;
+    box-shadow: 0 0 15px rgba(190, 218, 70, 0.5);
+  }
+  50% {
+    border-color: #45B7D1;
+    box-shadow: 0 0 15px rgba(69, 183, 209, 0.5);
+  }
+  75% {
+    border-color: #96CEB4;
+    box-shadow: 0 0 15px rgba(150, 206, 180, 0.5);
+  }
+  100% {
+    border-color: #FF6B6B;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
   }
 }
 
@@ -98,3 +192,4 @@ html, body {
   color: var(--primary-color);
   background-color: var(--light-off-white-color);
 }
+
