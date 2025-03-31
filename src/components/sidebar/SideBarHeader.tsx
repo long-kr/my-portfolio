@@ -13,7 +13,7 @@ export const SideBarHeader = () => {
   const image = resolvedTheme === "dark" ? darkImage : lightImage;
 
   return (
-    <header className="h-auto w-auto xl:h-60 xl:p-12">
+    <header className="h-auto w-auto md:h-60 xl:p-12">
       {isClient && (
         <Image
           src={image}
