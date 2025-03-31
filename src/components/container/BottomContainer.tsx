@@ -8,21 +8,15 @@ export const BottomContainer = () => {
   };
 
   return (
-    <footer>
-      <div className="flex justify-center py-16">
-        <Button
-          onClick={handleClick}
-          icon={<span>↑</span>}
-          className="hover:text-secondary"
-          variant="ghost"
-        >
-          Back to top
-        </Button>
-      </div>
-
-      <div className="flex justify-center py-16">
-        <p>Powered by Adobe Portfolio</p>
-      </div>
+    <footer className="flex justify-center py-16">
+      <Button
+        onClick={handleClick}
+        icon={<span>↑</span>}
+        className="hover:text-secondary"
+        variant="ghost"
+      >
+        Back to top
+      </Button>
     </footer>
   );
 };
