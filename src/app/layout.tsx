@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} relative grid min-h-screen w-full grid-flow-col grid-cols-1 antialiased sm:grid-cols-5`}
+        className={`${geistSans.variable} ${geistMono.variable} relative grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-5`}
       >
         <ThemeProvider
           attribute="class"
@@ -37,13 +37,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SideBar className="col-span-1 h-full" />
-          <MainContainer className="col-span-3 h-full">
+          <SideBar className="col-span-1" />
+
+          <MainContainer className="col-span-1 lg:col-span-3">
             {children}
           </MainContainer>
-          <div className="fixed bottom-4 right-4 z-50">
-            <ThemeToggle />
-          </div>
+
+          <ThemeToggle />
         </ThemeProvider>
       </body>
     </html>

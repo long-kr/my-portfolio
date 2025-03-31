@@ -3,17 +3,22 @@
 import darkImage from "@/assests/image/sig dark.jpg";
 import lightImage from "@/assests/image/sig.jpg";
 import { useIsClient } from "@/hook/useIsClient";
+import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-export const SideBarHeader = () => {
+interface SideBarHeaderProps {
+  className?: string;
+}
+
+export const SideBarHeader = ({ className }: SideBarHeaderProps) => {
   const { resolvedTheme } = useTheme();
   const isClient = useIsClient();
 
   const image = resolvedTheme === "dark" ? darkImage : lightImage;
 
   return (
-    <header className="h-auto w-auto xl:h-60 xl:p-12">
+    <header className={cn(className)}>
       {isClient && (
         <Image
           src={image}
