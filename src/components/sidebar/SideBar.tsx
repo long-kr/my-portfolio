@@ -1,5 +1,4 @@
 import Navigation from "@/components/sidebar/Navigation";
-import navItems from "@/data/navItems";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { SideBarHeader } from "./SideBarHeader";
@@ -8,10 +7,10 @@ export const SideBar: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
   return (
-    <aside className={cn(className)}>
-      <SideBarHeader />
+    <nav className={cn(className)}>
+      <SideBarHeader className="h-auto w-auto lg:p-6 xl:p-12" />
 
-      <Navigation navItems={navItems} />
-    </aside>
+      <Navigation className="flex w-full flex-row justify-between px-5 sm:justify-evenly lg:mx-auto lg:w-2/5 lg:flex-col lg:p-0" />
+    </nav>
   );
 };
