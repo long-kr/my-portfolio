@@ -46,7 +46,7 @@ export const AnimatedText = ({
           <span
             key={index}
             className={cn(
-              "inline-block translate-y-4 text-neutral-900 opacity-0 dark:text-neutral-50",
+              "inline-block translate-y-4 text-neutral-900 opacity-0 dark:text-primary",
               isVisible && "animate-[fadeInUp_0.5s_ease-out_forwards]",
             )}
             style={{
