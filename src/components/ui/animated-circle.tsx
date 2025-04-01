@@ -37,10 +37,7 @@ export const AnimatedCircle: React.FC<AnimatedCircleProps> = ({
 }) => {
   return (
     <div
-      className={cn(
-        "absolute -right-4 -top-4 h-24 w-24 animate-[spin_10s_linear_infinite]",
-        containerClassName,
-      )}
+      className={cn("animate-[spin_10s_linear_infinite]", containerClassName)}
     >
       <div className="relative h-full w-full">
         <div

@@ -2,23 +2,21 @@ import { AnimatedCircle, AnimatedText } from "@/components/ui";
 
 export default function Home() {
   return (
-    <div className="col-span-3">
-      <section className="relative min-h-[100vh]">
-        <div className="sticky top-0 flex h-screen items-center justify-center">
-          <div className="relative">
-            <h1 className="text-2xl font-bold sm:text-4xl md:text-6xl">
-              Hi, I&apos;m{" "}
-              <AnimatedText
-                text="Long&nbsp;Huynh"
-                className="relative inline-block"
-                delay={0.1}
-              />
-            </h1>
+    <section className="relative min-h-[75vh] md:min-h-[100vh]">
+      <div className="sticky top-0 flex h-[75vh] items-center justify-center md:h-screen">
+        <div className="relative">
+          <h1 className="h- text-2xl font-bold sm:text-4xl md:text-6xl">
+            Hi, I&apos;m{" "}
+            <AnimatedText
+              text="Long&nbsp;Huynh"
+              className="relative inline-block"
+              delay={0.1}
+            />
+          </h1>
 
-            <AnimatedCircle containerClassName="md:-right-4 md:-top-4 md:h-24 md:w-24" />
-          </div>
+          <AnimatedCircle containerClassName="absolute -right-3 sm:-right-2 sm:-top-9 md:-right-0 -top-7 h-24 w-24 md:-top-14 sm:h-32 md:h-48 sm:w-32 md:w-48" />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
