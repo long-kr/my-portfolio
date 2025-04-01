@@ -19,7 +19,7 @@ type TechnologiCardProps = {
 
 export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
   return (
-    <Card className="h-fit gap-5 border-none shadow-none">
+    <Card className="border-none shadow-none">
       <CardHeader>
         <CardTitle>{toTitleCase(title)}</CardTitle>
       </CardHeader>

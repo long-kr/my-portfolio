@@ -3,7 +3,7 @@ import { TechnologiCard } from "@/components/card/TechnologiCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui";
 
 const technologies = {
-  language: ["java", "javascript", "typescript", "python"] as IconKeys[],
+  language: ["javascript", "typescript", "java", "python"] as IconKeys[],
   frontend: [
     "react",
     "nextjs",
@@ -16,32 +16,30 @@ const technologies = {
   tool: ["aws", "git", "bash", "docker", "postman"] as IconKeys[],
 };
 
-const About = () => {
-  return (
-    <>
-      <div className="flex flex-col justify-end">
-        <Card className="h-fit border-none shadow-none">
-          <CardHeader>
-            <CardTitle>Hi, I&apos;m Long T Huynh</CardTitle>
-          </CardHeader>
+const About = () => (
+  <>
+    <div className="col-span-1 flex flex-col justify-end">
+      <Card className="h-fit border-none shadow-none">
+        <CardHeader>
+          <CardTitle>Hi, I&apos;m Long T Huynh</CardTitle>
+        </CardHeader>
 
-          <CardContent>
-            <p>I&apos;m a Fullstack Developer</p>
-          </CardContent>
+        <CardContent>
+          <p>I&apos;m a Fullstack Developer</p>
+        </CardContent>
 
-          <CardContent>
-            <p>Vietnamese, A developer obssessed with solving problems.</p>
-          </CardContent>
-        </Card>
-      </div>
+        <CardContent>
+          <p>Vietnamese, A developer obssessed with solving problems.</p>
+        </CardContent>
+      </Card>
+    </div>
 
-      <div className="flex flex-col justify-between gap-2">
-        {Object.entries(technologies).map(([key, value]) => (
-          <TechnologiCard key={key} title={key} icons={value} />
-        ))}
-      </div>
-    </>
-  );
-};
+    <div className="col-span-1 flex flex-col justify-between gap-2">
+      {Object.entries(technologies).map(([key, value]) => (
+        <TechnologiCard key={key} title={key} icons={value} />
+      ))}
+    </div>
+  </>
+);
 
 export default About;

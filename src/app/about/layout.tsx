@@ -2,7 +2,7 @@ import { MainLayout } from "@/components/layout";
 
 const AboutLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <MainLayout className="flex h-screen w-full flex-row justify-between px-5 py-12">
+    <MainLayout className="grid min-h-screen grid-cols-1 md:grid-cols-2">
       {children}
     </MainLayout>
   );
