@@ -1,43 +1,43 @@
-"use client";
-
-import pic from "@/assests/image/Screen (30).jpg";
-import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui";
+import { Card, CardContent } from "@/components/ui";
+import { Project } from "@/data";
+import { DEFAULT_IMAGE } from "@/data/constant";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { useState } from "react";
 
-type ProjectCardProps = React.ComponentProps<typeof Card>;
+type ProjectCardProps = React.ComponentProps<typeof Card> & {
+  project: Project;
+  renderInfo: (project: Project, className?: string) => React.ReactNode;
+};
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ className, ...props }) => {
-  const [isHover, setIsHover] = useState(false);
-
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  className,
+  project,
+  renderInfo,
+  ...props
+}) => {
   return (
     <Card
       {...props}
-      className={cn(className)}
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-    >
-      {isHover ? (
-        <CardContent className="flex min-h-full flex-col p-0 text-center">
-          <CardTitle className="text-xl">Project Title</CardTitle>
-          <CardDescription className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </CardDescription>
-        </CardContent>
-      ) : (
-        <CardContent className="p-0">
-          <Image
-            src={pic}
-            alt="Project Image"
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-          />
-        </CardContent>
+      className={cn(
+        "group h-[750px] w-full border-none shadow-none md:h-[550px]",
+        className,
       )}
+    >
+      {renderInfo(
+        project,
+        "hidden min-h-full flex-col items-center gap-5 py-10 text-lg group-hover:flex md:group-hover:hidden",
+      )}
+
+      <CardContent className="relative min-h-full w-full overflow-hidden p-0 group-hover:hidden md:group-hover:block">
+        <Image
+          src={project.image ?? DEFAULT_IMAGE}
+          alt={project.name}
+          fill
+          placeholder="blur"
+          loading="lazy"
+          className="object-cover"
+        />
+      </CardContent>
     </Card>
   );
 };

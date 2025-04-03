@@ -1,4 +1,5 @@
 import { AnimatedCircle, AnimatedText } from "@/components/ui";
+import { appData } from "@/data";
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
           <h1 className="h- text-2xl font-bold sm:text-4xl md:text-6xl">
             Hi, I&apos;m{" "}
             <AnimatedText
-              text="Long&nbsp;Huynh"
+              text={appData.name}
               className="relative inline-block"
               delay={0.1}
             />
