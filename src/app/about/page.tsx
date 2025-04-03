@@ -2,6 +2,7 @@ import { IconKeys } from "@/assests/svg";
 import { TechnologiCard } from "@/components/card/TechnologiCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui";
 import { appData } from "@/data";
+import React from "react";
 
 const technologies = {
   language: ["javascript", "typescript", "java", "python"] as IconKeys[],
@@ -26,7 +27,23 @@ const About = () => (
         </CardHeader>
 
         <CardContent>
-          <p>{appData.description}</p>
+          <p>
+            {appData.description.split(" ").map((char, index) => {
+              return (
+                <React.Fragment key={index}>
+                  <span
+                    className="animate-[fadeInUp_1s_ease-out_forwards]"
+                    style={{
+                      animationDelay: `${index * 0.3}s`,
+                    }}
+                  >
+                    {char}
+                  </span>
+                  {index < appData.description.split(" ").length - 1 && " "}
+                </React.Fragment>
+              );
+            })}
+          </p>
         </CardContent>
       </Card>
     </div>
