@@ -1,4 +1,11 @@
 import { IconKeys, icons } from "@/assests/svg";
+import { toTitleCase } from "@/lib/utils";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@radix-ui/react-tooltip";
 import React from "react";
 
 type SVGIconProps = {
@@ -15,5 +22,17 @@ export const SVGIcon: React.FC<SVGIconProps> = ({
     ...svgProps,
   });
 
-  return <div {...props}>{Icon}</div>;
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <div {...props}>{Icon}</div>
+        </TooltipTrigger>
+
+        <TooltipContent className="bg-milk-white shadow">
+          {toTitleCase(iconKey)}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
 };

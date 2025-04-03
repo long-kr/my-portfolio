@@ -1,6 +1,6 @@
 "use client";
 
-import darkImage from "@/assests/image/sig dark.jpg";
+import darkImage from "@/assests/image/sig-dark.jpg";
 import lightImage from "@/assests/image/sig.jpg";
 import { useIsClient } from "@/hook/useIsClient";
 import { cn } from "@/lib/utils";

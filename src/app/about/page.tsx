@@ -1,6 +1,7 @@
 import { IconKeys } from "@/assests/svg";
 import { TechnologiCard } from "@/components/card/TechnologiCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui";
+import { appData } from "@/data";
 
 const technologies = {
   language: ["javascript", "typescript", "java", "python"] as IconKeys[],
@@ -12,7 +13,7 @@ const technologies = {
     "playwright",
   ] as IconKeys[],
   backend: ["expressjs", "springboot"] as IconKeys[],
-  database: ["mongoDB", "postgreSQL", "firebase"] as IconKeys[],
+  database: ["mongodb", "postgresql", "firebase"] as IconKeys[],
   tool: ["aws", "git", "bash", "docker", "postman"] as IconKeys[],
 };
 
@@ -21,15 +22,11 @@ const About = () => (
     <div className="col-span-1 flex flex-col justify-end">
       <Card className="h-fit border-none shadow-none">
         <CardHeader>
-          <CardTitle>Hi, I&apos;m Long T Huynh</CardTitle>
+          <CardTitle>{appData.title}</CardTitle>
         </CardHeader>
 
         <CardContent>
-          <p>I&apos;m a Fullstack Developer</p>
-        </CardContent>
-
-        <CardContent>
-          <p>Vietnamese, A developer obssessed with solving problems.</p>
+          <p>{appData.description}</p>
         </CardContent>
       </Card>
     </div>

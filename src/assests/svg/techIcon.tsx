@@ -302,7 +302,7 @@ export const techIcon = {
       />
     </svg>
   ),
-  mongoDB: (
+  mongodb: (
     <svg
       width="100"
       height="100"
@@ -331,7 +331,7 @@ export const techIcon = {
       </g>
     </svg>
   ),
-  postgreSQL: (
+  postgresql: (
     <svg
       width="100"
       height="100"
