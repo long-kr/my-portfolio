@@ -1,6 +1,7 @@
 import { MainContainer } from "@/components/container/MainContainer";
 import { SideBar } from "@/components/sidebar";
 import { ThemeToggle } from "@/components/theme";
+import { ProgressBar } from "@/components/ui/progress-bar";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} relative grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-5`}
       >
+        <ProgressBar />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
