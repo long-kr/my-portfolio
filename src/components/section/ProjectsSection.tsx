@@ -17,6 +17,7 @@ import { useIsClient } from "@/hook/useIsClient";
 import { toTitleCase } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import React from "react";
+import { ScrollAnimationWrapper } from "./ScrollAnimationWrapper";
 
 const renderProjectCard = (project: Project, className?: string) => (
   <CardContent className={className}>
@@ -62,11 +63,10 @@ const renderProjectCard = (project: Project, className?: string) => (
 
 const ProjectInforDisplay = ({ project }: { project: Project }) => {
   const { resolvedTheme } = useTheme();
-
   const isClient = useIsClient();
 
   return (
-    <div className="relative hidden min-h-full w-full overflow-hidden md:col-span-1 md:block">
+    <div className="stagger-item relative hidden min-h-full w-full overflow-hidden md:col-span-1 md:block">
       {/* Background image container */}
       {isClient && (
         <div
@@ -89,20 +89,33 @@ const ProjectInforDisplay = ({ project }: { project: Project }) => {
   );
 };
 
-const ProjectsPage = () => {
+const ProjectsSection = () => {
   const projects = appData.projects;
 
-  return projects.map((project, index) => (
-    <React.Fragment key={project.name}>
-      {index % 2 === 0 && <ProjectInforDisplay project={project} />}
+  return (
+    <ScrollAnimationWrapper
+      id="projects"
+      className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4"
+    >
+      <h2 className="col-span-2 mb-12 text-center text-4xl font-bold">
+        My Projects
+      </h2>
 
-      <div className="col-span-2 md:col-span-1">
-        <ProjectCard project={project} renderInfo={renderProjectCard} />
-      </div>
+      {projects.map((project, index) => (
+        <React.Fragment key={project.name}>
+          {index % 2 === 0 && <ProjectInforDisplay project={project} />}
 
-      {index % 2 !== 0 && <ProjectInforDisplay project={project} />}
-    </React.Fragment>
-  ));
+          <div className="stagger-item col-span-2 md:col-span-1">
+            <ProjectCard project={project} renderInfo={renderProjectCard} />
+          </div>
+
+          {index % 2 !== 0 && <ProjectInforDisplay project={project} />}
+        </React.Fragment>
+      ))}
+    </ScrollAnimationWrapper>
+  );
 };
 
-export default ProjectsPage;
+ProjectsSection.displayName = "ProjectsSection";
+
+export default ProjectsSection;

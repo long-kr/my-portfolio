@@ -5,11 +5,11 @@ const navItems = [
     },
     {
         title: "About",
-        link: "/about",
+        link: "/#about",
     },
     {
         title: "Projects",
-        link: "/projects",
+        link: "/#projects",
     },
     {
         title: "Contact",
