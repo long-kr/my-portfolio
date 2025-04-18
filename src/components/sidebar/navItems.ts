@@ -13,7 +13,7 @@ const navItems = [
     },
     {
         title: "Contact",
-        link: "/contact",
+        link: "/#contact",
     },
 ];
 

@@ -12,6 +12,7 @@ import {
 
 import { useState } from "react";
 import { toast } from "sonner";
+import { ScrollAnimationWrapper } from "./ScrollAnimationWrapper";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -72,7 +73,7 @@ const ContactSection = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <ScrollAnimationWrapper id="contact" className="container mx-auto px-4 py-8">
       <Card className="mx-auto max-w-2xl">
         <CardHeader>
           <CardTitle>Contact Me</CardTitle>
@@ -132,7 +133,7 @@ const ContactSection = () => {
           </form>
         </CardContent>
       </Card>
-    </div>
+    </ScrollAnimationWrapper>
   );
 };
 

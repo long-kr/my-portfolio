@@ -25,6 +25,17 @@ const ProjectsSection = dynamic(
   },
 );
 
+const ContactSection = dynamic(
+  () => import("@/components/section/ContactSection"),
+  {
+    loading: () => (
+      <div className="flex min-h-[50vh] items-center justify-center">
+        Loading contact section...
+      </div>
+    ),
+  },
+);
+
 export default function Home() {
   return (
     <>
@@ -51,6 +62,10 @@ export default function Home() {
 
       <div className="mb-24 py-16">
         <ProjectsSection />
+      </div>
+
+      <div className="mb-24 py-16">
+        <ContactSection />
       </div>
     </>
   );

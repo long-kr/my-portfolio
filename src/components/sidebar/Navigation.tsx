@@ -1,6 +1,6 @@
 "use client";
 
-import navItems from "@/data/navItems";
+import navItems from "@/components/sidebar/navItems";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
