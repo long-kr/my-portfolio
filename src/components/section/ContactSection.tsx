@@ -12,7 +12,7 @@ import {
 
 import { useState } from "react";
 import { toast } from "sonner";
-import { ScrollAnimationWrapper } from "./ScrollAnimationWrapper";
+import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({

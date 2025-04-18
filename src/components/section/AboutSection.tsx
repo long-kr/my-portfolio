@@ -3,7 +3,7 @@ import { TechnologiCard } from "@/components/card/TechnologiCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui";
 import { appData } from "@/data";
 import React from "react";
-import { ScrollAnimationWrapper } from "./ScrollAnimationWrapper";
+import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
 
 const technologies = {
   language: ["javascript", "typescript", "java", "python"] as IconKeys[],

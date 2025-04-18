@@ -17,7 +17,7 @@ import { useIsClient } from "@/hooks/useIsClient";
 import { toTitleCase } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import React from "react";
-import { ScrollAnimationWrapper } from "./ScrollAnimationWrapper";
+import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
 
 const renderProjectCard = (project: Project, className?: string) => (
   <CardContent className={className}>

@@ -1,4 +1,4 @@
-import Navigation from "@/components/sidebar/Navigation";
+import { Navigation } from "@/components/sidebar/Navigation";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { SideBarHeader } from "./SideBarHeader";
