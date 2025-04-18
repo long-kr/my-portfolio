@@ -1,4 +1,4 @@
-import { IconKeys, icons } from "@/assests/svg";
+import { IconKeys, icons } from "@/assets/svg";
 import { toTitleCase } from "@/lib/utils";
 import {
   Tooltip,

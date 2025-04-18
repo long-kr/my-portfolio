@@ -1,8 +1,8 @@
-import calculatorImage from "@/assests/image/calculator-project-pic.png";
-import nailzyImage from "@/assests/image/nailzy-project-pic.jpg";
-import reservationImage from "@/assests/image/reservation-project-pic.jpg";
-import movieImage from "@/assests/image/welovemovies-project-pic.jpg";
-import { IconKeys } from "@/assests/svg";
+import calculatorImage from "@/assets/image/calculator-project-pic.png";
+import nailzyImage from "@/assets/image/nailzy-project-pic.jpg";
+import reservationImage from "@/assets/image/reservation-project-pic.jpg";
+import movieImage from "@/assets/image/welovemovies-project-pic.jpg";
+import { IconKeys } from "@/assets/svg";
 import { StaticImageData } from "next/image";
 
 export type Social = {

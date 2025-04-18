@@ -1,7 +1,7 @@
 "use client";
 
-import darkBg from "@/assests/image/bg-black.webp";
-import whiteBg from "@/assests/image/bg-white.jpg";
+import darkBg from "@/assets/image/bg-black.webp";
+import whiteBg from "@/assets/image/bg-white.jpg";
 
 import { ProjectCard } from "@/components/card";
 import {

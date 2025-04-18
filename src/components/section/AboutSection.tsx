@@ -1,4 +1,4 @@
-import { IconKeys } from "@/assests/svg";
+import { IconKeys } from "@/assets/svg";
 import { TechnologiCard } from "@/components/card/TechnologiCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui";
 import { appData } from "@/data";

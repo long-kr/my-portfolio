@@ -1,3 +1,4 @@
+import React from "react";
 import { cn } from "@/lib/utils";
 
 const colorSchemes = {
@@ -19,15 +20,8 @@ const colorSchemes = {
   },
 };
 
-type Speed = "slow" | "normal" | "fast";
-
 interface AnimatedCircleProps {
   containerClassName?: string;
-  size?: "sm" | "md" | "lg";
-  spinSpeed?: Speed;
-  pulseSpeed?: Speed;
-  morphSpeed?: Speed;
-  colorSpeed?: Speed;
   colorScheme?: "rainbow" | "ocean" | "sunset" | "forest";
 }
 

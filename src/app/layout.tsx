@@ -1,7 +1,7 @@
 import { MainContainer } from "@/components/container/MainContainer";
 import { SideBar } from "@/components/sidebar";
 import { ThemeToggle } from "@/components/theme";
-import { ProgressBar } from "@/components/ui/progress-bar";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";

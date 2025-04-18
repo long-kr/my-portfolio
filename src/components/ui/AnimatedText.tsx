@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
@@ -18,7 +19,8 @@ export const AnimatedText = ({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const node = ref.current;
+    const observer = new window.IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
@@ -27,14 +29,12 @@ export const AnimatedText = ({
       },
       { threshold: 0.1 },
     );
-
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (node) {
+      observer.observe(node);
     }
-
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (node) {
+        observer.unobserve(node);
       }
     };
   }, []);
@@ -44,10 +44,10 @@ export const AnimatedText = ({
       <div className="inline-flex">
         {text.split("").map((char, index) =>
           char === " " ? (
-            <span key={index} className="inline-block w-4" />
+            <span key={`space-${index}`} className="inline-block w-4" />
           ) : (
             <span
-              key={index}
+              key={`char-${char}-${index}`}
               className={cn(
                 "inline-block translate-y-4 text-neutral-900 opacity-0 dark:text-primary",
                 isVisible && "animate-[fadeInUp_0.5s_ease-out_forwards]",

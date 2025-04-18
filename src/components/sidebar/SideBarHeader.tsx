@@ -1,7 +1,7 @@
 "use client";
 
-import darkImage from "@/assests/image/sig-dark.jpg";
-import lightImage from "@/assests/image/sig.jpg";
+import darkImage from "@/assets/image/sig-dark.jpg";
+import lightImage from "@/assets/image/sig.jpg";
 import { useIsClient } from "@/hook/useIsClient";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
