@@ -15,9 +15,7 @@ const Navigation = ({ className }: NavigationProps) => {
   return (
     <ul
       className={cn(
-        // Responsive sticky/fixed navigation
-        "bg-background/80 backdrop-blur z-50",
-        "fixed bottom-0 left-0 right-0 w-full md:static md:sticky md:top-8 md:w-auto",
+       
         className,
       )}
     >

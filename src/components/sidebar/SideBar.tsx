@@ -10,7 +10,11 @@ export const SideBar: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     <nav className={cn(className)}>
       <SideBarHeader className="h-auto w-auto lg:p-6 xl:p-12" />
 
-      <Navigation className="flex w-full flex-row justify-between px-5 sm:justify-evenly lg:mx-auto lg:w-2/5 lg:flex-col lg:p-0" />
+      <Navigation className={cn(
+        "flex w-full flex-row justify-between px-5 sm:justify-evenly lg:mx-auto lg:w-2/5 lg:flex-col lg:p-0",
+         // Responsive sticky/fixed navigation
+         "bg-background/80 backdrop-blur z-50",
+         "md:sticky md:top-10 md:w-auto",)} />
     </nav>
   );
 };
