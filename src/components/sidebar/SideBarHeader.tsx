@@ -2,7 +2,7 @@
 
 import darkImage from "@/assets/image/sig-dark.jpg";
 import lightImage from "@/assets/image/sig.jpg";
-import { useIsClient } from "@/hook/useIsClient";
+import { useIsClient } from "@/hooks/useIsClient";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import Image from "next/image";

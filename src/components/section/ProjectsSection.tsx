@@ -13,7 +13,7 @@ import {
   SVGIcon,
 } from "@/components/ui";
 import { appData, Project } from "@/data/appData";
-import { useIsClient } from "@/hook/useIsClient";
+import { useIsClient } from "@/hooks/useIsClient";
 import { toTitleCase } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import React from "react";
