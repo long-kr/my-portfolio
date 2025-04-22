@@ -67,7 +67,7 @@ export const appData = {
             url: "https://final-cap-reservations-cliend.vercel.app/dashboard",
             image: reservationImage,
             github: "https://github.com/long-kr/Project-Restaurant_Reservation",
-            type: "personal",
+            type: "school project",
             description: "A monorepo project that includes a client and a server. The client is a web application that allows users to manage their reservations and the server is a RESTful API that allows the client to communicate with the database.",
             technologies: ["react", "typescript", "expressjs", "postgresql"] as IconKeys[],
         },
