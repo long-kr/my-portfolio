@@ -1,3 +1,4 @@
 export * from "./appData";
-export * from "./navItems";
+
+export * from "./constant";
 

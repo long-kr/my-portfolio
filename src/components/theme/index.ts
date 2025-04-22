@@ -1,3 +1,4 @@
-export * from "./theme-provider";
-export * from "./theme-toggle";
+export * from "./ScrollAnimationWrapper";
+export * from "./ThemeProvider";
+export * from "./ThemeToggle";
 

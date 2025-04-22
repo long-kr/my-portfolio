@@ -1,9 +1,10 @@
-export { AnimatedCircle } from './animated-circle';
-export { AnimatedText } from './animated-text';
+export { AnimatedCircle } from './AnimatedCircle';
+export { AnimatedText } from './AnimatedText';
 export { Button } from './button';
 export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './card';
 export { SVGIcon } from './icon';
 export { Input } from './input';
+export { ProgressBar } from './ProgressBar';
+export { ScrollText } from './ScrollText';
 export { Textarea } from './textarea';
 export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip';
-

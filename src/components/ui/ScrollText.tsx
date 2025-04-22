@@ -10,11 +10,10 @@ export const ScrollText: React.FC<ScrollTextProps> = ({
   text = "Name",
   ...props
 }) => {
-  const [visibleText, setVisibleText] = useState(text.charAt(0)); // Initially show "L"
+  const [visibleText, setVisibleText] = useState(text.charAt(0));
 
   const handleScroll = (event: React.WheelEvent<HTMLDivElement>) => {
     if (event.deltaY > 0) {
-      // Update the visible text
       setVisibleText((prev) => {
         if (prev.length < text.length) {
           return prev + text.charAt(prev.length);

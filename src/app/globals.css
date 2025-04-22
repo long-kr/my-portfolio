@@ -1,9 +1,31 @@
+/**
+ * Main CSS file for the portfolio website
+ * 
+ * Table of Contents:
+ * 1. Tailwind Directives
+ * 2. Theme Variables
+ *    - Light Theme
+ *    - Dark Theme
+ * 3. Base Styles
+ * 4. Component Styles
+ *    - Scroll Animations
+ *    - NProgress Customization
+ * 5. Animations
+ */
+
+/* -------------------------------- */
+/* 1. Tailwind Directives          */
+/* -------------------------------- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* -------------------------------- */
+/* 2. Theme Variables              */
+/* -------------------------------- */
 @layer base {
   :root {
+    /* Color System - Light Theme */
     /* Base colors */
     --primary-color: #99BC85;
     --secondary-color: #E4EFE7;
@@ -44,6 +66,7 @@
     --neutral-800: #5A7B4A;
     --neutral-900: #4A6B3A;
 
+    /* UI Component Variables - Light Theme */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -63,10 +86,13 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
+    
+    /* Sizing and Spacing */
     --radius: 0.5rem;
   }
 
   .dark {
+    /* Color System - Dark Theme */
     /* Base colors */
     --primary-color: #7A9B6A;
     --secondary-color: #2A3B24;
@@ -107,6 +133,7 @@
     --neutral-800: #4A6B3A;
     --neutral-900: #3A5B2A;
 
+    /* UI Component Variables - Dark Theme */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
@@ -126,6 +153,71 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
+  }
+}
+
+/* -------------------------------- */
+/* 3. Base Styles                  */
+/* -------------------------------- */
+html, body {
+  min-height: 100%;
+  color: var(--primary-color);
+  background-color: var(--light-off-white-color);
+}
+
+.dark html, .dark body {
+  color: var(--primary-color);
+  background-color: var(--light-off-white-color);
+}
+
+/* -------------------------------- */
+/* 4. Component Styles             */
+/* -------------------------------- */
+
+/* Scroll Animation Classes */
+@layer components {
+  /* Base animation styles */
+  .scroll-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .scroll-animation.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered item animations */
+  .scroll-animation .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .scroll-animation.animate .stagger-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered animation delays */
+  .scroll-animation.animate .stagger-item:nth-child(1) { transition-delay: 0.1s; }
+  .scroll-animation.animate .stagger-item:nth-child(2) { transition-delay: 0.3s; }
+  .scroll-animation.animate .stagger-item:nth-child(3) { transition-delay: 0.5s; }
+  .scroll-animation.animate .stagger-item:nth-child(4) { transition-delay: 0.7s; }
+  .scroll-animation.animate .stagger-item:nth-child(5) { transition-delay: 0.9s; }
+
+  /* Word animation */
+  .scroll-animation .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .scroll-animation.animate .word {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -159,6 +251,11 @@
   display: none;
 }
 
+/* -------------------------------- */
+/* 5. Animations                   */
+/* -------------------------------- */
+
+/* Fade In Up Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -170,24 +267,26 @@
   }
 }
 
+/* Morphing Border Radius Animation */
 @keyframes morphRadius {
   0% {
     border-radius: 50% 55% 45% 40%;
   }
   25% {
-    border-radius: 52% 48% 55% 45% ;
+    border-radius: 52% 48% 55% 45%;
   }
   50% {
-    border-radius: 58% 42% 55% 45% ;
+    border-radius: 58% 42% 55% 45%;
   }
   75% {
-    border-radius: 55% 45% 50% 50% ;
+    border-radius: 55% 45% 50% 50%;
   }
   100% {
     border-radius: 50% 55% 45% 40%;
   }
 }
 
+/* Color Cycling Animation */
 @keyframes colorCycle {
   0% {
     border-color: #FF6B6B;
@@ -209,16 +308,5 @@
     border-color: #FF6B6B;
     box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
   }
-}
-
-html, body {
-  min-height: 100%;
-  color: var(--primary-color);
-  background-color: var(--light-off-white-color);
-}
-
-.dark html, .dark body {
-  color: var(--primary-color);
-  background-color: var(--light-off-white-color);
 }
 

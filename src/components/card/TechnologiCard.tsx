@@ -1,6 +1,6 @@
 "use client";
 
-import { IconKeys } from "@/assests/svg";
+import { IconKeys } from "@/assets/svg";
 import { toTitleCase } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, SVGIcon } from "../ui";
