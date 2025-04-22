@@ -24,9 +24,12 @@ const Navigation = ({ className }: NavigationProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (ref.current && initialHeight.current !== null) {
-        if (initialHeight.current < window.scrollY) setIsOnScreen(true);
-        else setIsOnScreen(false);
+      if (!ref.current || !initialHeight.current) return;
+
+      if (initialHeight.current < window.scrollY) {
+        setIsOnScreen(true);
+      } else {
+        setIsOnScreen(false);
       }
     };
 
