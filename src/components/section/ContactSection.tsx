@@ -10,54 +10,91 @@ import {
   Textarea,
 } from "@/components/ui";
 
+import DOMPurify from "dompurify";
 import { useState } from "react";
 import { toast } from "sonner";
+import { z } from "zod";
 import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
 
+const formDataInitial = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+
+const formSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .max(50, "Name must be at most 50 characters"),
+  email: z
+    .string()
+    .email("Please enter a valid email")
+    .max(100, "Email must be at most 100 characters"),
+  subject: z
+    .string()
+    .min(1, "Subject is required")
+    .max(100, "Subject must be at most 100 characters"),
+  message: z.string().min(1, "Message is required"),
+});
+
+type FormSchema = z.infer<typeof formSchema>;
+
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState<FormSchema>(formDataInitial);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email";
-    }
-    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return;
-    setIsSubmitting(true);
+
     try {
+      setIsSubmitting(true);
+      formSchema.parse(formData);
+
+      const sanitizedData: FormSchema = {
+        name: DOMPurify.sanitize(formData.name),
+        email: DOMPurify.sanitize(formData.email),
+        subject: DOMPurify.sanitize(formData.subject),
+        message: DOMPurify.sanitize(formData.message),
+      };
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(sanitizedData),
       });
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Failed to send message");
       }
+
       toast.success("Message sent successfully!");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+
+      setFormData(formDataInitial);
       setErrors({});
-    } catch (err) {
+    } catch (err: unknown) {
+      if (err instanceof z.ZodError) {
+        const errors = err.errors.reduce(
+          (acc, error) => {
+            console.log(error);
+            acc[error.path[0]] = error.message;
+            return acc;
+          },
+          {} as Record<string, string>,
+        );
+        setErrors(errors);
+        return;
+      }
+      console.log(err);
+
       const errorMessage =
-        err instanceof Error ? err.message : "Failed to send message. Please try again.";
+        err instanceof Error
+          ? err.message
+          : "Failed to send message. Please try again.";
+
       toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
@@ -73,7 +110,10 @@ const ContactSection = () => {
   };
 
   return (
-    <ScrollAnimationWrapper id="contact" className="container mx-auto px-4 py-8">
+    <ScrollAnimationWrapper
+      id="contact"
+      className="container mx-auto px-4 py-8"
+    >
       <Card className="mx-auto max-w-2xl">
         <CardHeader>
           <CardTitle>Contact Me</CardTitle>
@@ -86,9 +126,8 @@ const ContactSection = () => {
               label="Name"
               value={formData.name}
               onChange={handleChange}
-              required
               placeholder="Your name"
-              error={errors.name}
+              error={errors?.name}
             />
             <Input
               id="email"
@@ -97,9 +136,8 @@ const ContactSection = () => {
               label="Email"
               value={formData.email}
               onChange={handleChange}
-              required
               placeholder="your.email@example.com"
-              error={errors.email}
+              error={errors?.email}
             />
             <Input
               id="subject"
@@ -107,9 +145,8 @@ const ContactSection = () => {
               label="Subject"
               value={formData.subject}
               onChange={handleChange}
-              required
               placeholder="Message subject"
-              error={errors.subject}
+              error={errors?.subject}
             />
             <Textarea
               id="message"
@@ -117,10 +154,9 @@ const ContactSection = () => {
               label="Message"
               value={formData.message}
               onChange={handleChange}
-              required
               placeholder="Your message"
               className="min-h-[150px]"
-              error={errors.message}
+              error={errors?.message}
             />
             <Button
               type="submit"
