@@ -5,6 +5,7 @@ import { ProgressBar } from "@/components/ui/ProgressBar";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,21 +30,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} relative grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-5`}
-      >
-        <ProgressBar />
+      <body className={`${geistSans.variable} ${geistMono.variable} relative`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <SideBar className="col-span-1" />
+          <ProgressBar />
+          <Toaster closeButton />
 
-          <MainContainer className="col-span-1 lg:col-span-3">
-            {children}
-          </MainContainer>
+          <div className="grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-5">
+            <SideBar className="col-span-1" />
+
+            <MainContainer className="col-span-1 lg:col-span-3">
+              {children}
+            </MainContainer>
+          </div>
 
           <ThemeToggle />
         </ThemeProvider>
