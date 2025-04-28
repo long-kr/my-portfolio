@@ -5,6 +5,7 @@ import { ProgressBar } from "@/components/ui/ProgressBar";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import { Toaster } from "sonner";
 import "./globals.css";
 
@@ -37,7 +38,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ProgressBar />
+          <Suspense>
+            <ProgressBar />
+          </Suspense>
+          
           <Toaster closeButton />
 
           <div className="grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-5">
