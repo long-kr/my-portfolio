@@ -41,10 +41,15 @@ const formSchema = z.object({
 
 type FormSchema = z.infer<typeof formSchema>;
 
+// API envelope types
+type ApiSuccess<T> = { success: true; data: T };
+type ApiError = { success: false; error: string; code?: string; details?: Record<string, string> };
+type ApiResponse<T> = ApiSuccess<T> | ApiError;
+
 const ContactSection = () => {
   const [formData, setFormData] = useState<FormSchema>(formDataInitial);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [validateErrors, setValidateErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,35 +65,35 @@ const ContactSection = () => {
         message: DOMPurify.sanitize(formData.message),
       };
 
-      const response = await fetch("/api/contact", {
+      // send and handle envelope
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(sanitizedData),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to send message");
+      const payload = (await res.json()) as ApiResponse<{ message: string }>;
+
+      if (!payload.success) {
+        if (payload.details) setValidateErrors(payload.details);
+        throw new Error(payload.error);
       }
 
-      toast.success("Message sent successfully!");
-
+      toast.success(payload.data.message);
       setFormData(formDataInitial);
-      setErrors({});
+      setValidateErrors({});
     } catch (err: unknown) {
       if (err instanceof z.ZodError) {
         const errors = err.errors.reduce(
           (acc, error) => {
-            console.log(error);
             acc[error.path[0]] = error.message;
             return acc;
           },
           {} as Record<string, string>,
         );
-        setErrors(errors);
+        setValidateErrors(errors);
         return;
       }
-      console.log(err);
 
       const errorMessage =
         err instanceof Error
@@ -106,7 +111,7 @@ const ContactSection = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+    if (validateErrors[name]) setValidateErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   return (
@@ -127,7 +132,7 @@ const ContactSection = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Your name"
-              error={errors?.name}
+              error={validateErrors?.name}
             />
             <Input
               id="email"
@@ -137,7 +142,7 @@ const ContactSection = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="your.email@example.com"
-              error={errors?.email}
+              error={validateErrors?.email}
             />
             <Input
               id="subject"
@@ -146,7 +151,7 @@ const ContactSection = () => {
               value={formData.subject}
               onChange={handleChange}
               placeholder="Message subject"
-              error={errors?.subject}
+              error={validateErrors?.subject}
             />
             <Textarea
               id="message"
@@ -156,7 +161,7 @@ const ContactSection = () => {
               onChange={handleChange}
               placeholder="Your message"
               className="min-h-[150px]"
-              error={errors?.message}
+              error={validateErrors?.message}
             />
             <Button
               type="submit"

@@ -1,53 +1,33 @@
+import { ErrorResponse, SuccessResponse } from "@/app/api/helpers";
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { sendEmailHandler } from "./service";
 
-export async function POST(request: Request) {
+/**
+ * Contact API route
+ *
+ * Handles POST requests to send emails
+ *
+ * Expects the following JSON payload:
+ * {
+ *   "name": "John Doe",
+ *   "email": "john.doe@example.com",
+ *   "subject": "Message subject",
+ *   "message": "Your message"
+ * }
+ *
+ * @param request - The incoming HTTP request containing the email data
+ * @returns HTTP Response containing the result of the email sending process
+ */
+export async function POST(request: Request): Promise<NextResponse> {
   try {
-    const { name, email, subject, message } = await request.json();
+    const emailData = await request.json();
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: Number(process.env.EMAIL_PORT),
-      secure: process.env.EMAIL_SECURE === "true",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    await sendEmailHandler(emailData);
 
-    // Email content
-    const mailOptions = {
-      from: "longkr.work@demomailtrap.co",
-      to: "longkr.work@gmail.com",
-      subject: `Portfolio Contact: ${subject}`,
-      text: `
-        Name: ${name}
-        Email: ${email}
-        Subject: ${subject}
-        Message: ${message}
-      `,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
-      `,
-    };
-
-    // Send email
-    await transporter.sendMail(mailOptions);
-
-    return NextResponse.json(
-      { message: "Email sent successfully" },
-      { status: 200 },
-    );
+    return SuccessResponse({ message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email:", error);
-    return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 },
-    );
+    
+    return ErrorResponse("Failed to send email");
   }
 }
