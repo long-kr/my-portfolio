@@ -1,4 +1,4 @@
-import { ErrorResponse, SuccessResponse } from "@/app/api/helpers";
+import { ErrorResponse, SuccessResponse } from "@/lib";
 import { NextResponse } from "next/server";
 import { sendEmailHandler } from "./service";
 

@@ -11,10 +11,12 @@ import {
 } from "@/components/ui";
 
 import DOMPurify from "dompurify";
+
+import { API_ENDPOINTS, ApiResponse } from "@/config";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
-import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
+import { ScrollAnimationWrapper } from "../theme";
 
 const formDataInitial = {
   name: "",
@@ -41,11 +43,6 @@ const formSchema = z.object({
 
 type FormSchema = z.infer<typeof formSchema>;
 
-// API envelope types
-type ApiSuccess<T> = { success: true; data: T };
-type ApiError = { success: false; error: string; code?: string; details?: Record<string, string> };
-type ApiResponse<T> = ApiSuccess<T> | ApiError;
-
 const ContactSection = () => {
   const [formData, setFormData] = useState<FormSchema>(formDataInitial);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -66,7 +63,7 @@ const ContactSection = () => {
       };
 
       // send and handle envelope
-      const res = await fetch("/api/contact", {
+      const res = await fetch(API_ENDPOINTS.contact, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(sanitizedData),

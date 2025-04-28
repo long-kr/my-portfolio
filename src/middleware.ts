@@ -1,6 +1,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
-import { checkRateLimit } from "./app/api/helpers";
+import { checkRateLimit } from "./lib";
+
 
 export const config = {
   matcher: ["/api/contact"],
