@@ -5,14 +5,14 @@ import whiteBg from "@/assets/image/bg-white.jpg";
 
 import { ProjectCard } from "@/components/card";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardTitle,
-  SVGIcon,
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardTitle,
+    SVGIcon,
 } from "@/components/ui";
-import { appData, Project } from "@/data/appData";
+import { appData, Project } from "@/config/appData";
 import { useIsClient } from "@/hooks/useIsClient";
 import { toTitleCase } from "@/lib/utils";
 import { useTheme } from "next-themes";

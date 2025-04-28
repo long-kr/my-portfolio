@@ -1,7 +1,7 @@
 import { IconKeys } from "@/assets/svg";
 import { TechnologiCard } from "@/components/card/TechnologiCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui";
-import { appData } from "@/data";
+import { appData } from "@/config";
 import React from "react";
 import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
 

@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui";
-import { Project } from "@/data";
-import { DEFAULT_IMAGE } from "@/data/constant";
+import { Project } from "@/config";
+import { DEFAULT_IMAGE } from "@/config/constant";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -43,3 +43,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 export { ProjectCard };
+
