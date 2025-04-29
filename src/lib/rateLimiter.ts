@@ -2,12 +2,13 @@
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 
-// Initialize Upstash Redis client from env
-const redis = Redis.fromEnv();
 
 // Create a sliding-window rate limiter: 5 requests per minute per key
 const rateLimiter = new Ratelimit({
-  redis,
+  redis: new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN,
+  }),
   limiter: Ratelimit.slidingWindow(5, "1 m"),
 });
 
