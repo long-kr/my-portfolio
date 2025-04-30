@@ -37,7 +37,7 @@ export type AppData = {
 export const appData = {
     name: "Long Huynh",
     title: "A Fullstack Developer",
-    description: "I'm a software engineer with a passion for building scalable and efficient systems.",
+    description: "I'm a full-stack developer with a passion for optimazing performance and solving complex logical problems.",
     email: "longhuynh@gmail.com",
     phone: "+1 469 478 7181",
     location: "Dallas Metro, Texas, USA",
