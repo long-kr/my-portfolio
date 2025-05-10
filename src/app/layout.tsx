@@ -2,6 +2,7 @@ import { MainContainer } from "@/components/container/MainContainer";
 import { SideBar } from "@/components/sidebar";
 import { ThemeToggle } from "@/components/theme";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -41,7 +42,7 @@ export default function RootLayout({
           <Suspense>
             <ProgressBar />
           </Suspense>
-          
+
           <Toaster closeButton />
 
           <div className="grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-5">
@@ -54,6 +55,9 @@ export default function RootLayout({
 
           <ThemeToggle />
         </ThemeProvider>
+
+        {/* Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   );

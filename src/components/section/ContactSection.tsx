@@ -13,6 +13,7 @@ import {
 import DOMPurify from "dompurify";
 
 import { API_ENDPOINTS, ApiResponse } from "@/config";
+import { track } from "@vercel/analytics";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -46,7 +47,9 @@ type FormSchema = z.infer<typeof formSchema>;
 const ContactSection = () => {
   const [formData, setFormData] = useState<FormSchema>(formDataInitial);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [validateErrors, setValidateErrors] = useState<Record<string, string>>({});
+  const [validateErrors, setValidateErrors] = useState<Record<string, string>>(
+    {},
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,6 +64,10 @@ const ContactSection = () => {
         subject: DOMPurify.sanitize(formData.subject),
         message: DOMPurify.sanitize(formData.message),
       };
+
+      track("contact-form-submit", {
+        name: sanitizedData.name,
+      });
 
       // send and handle envelope
       const res = await fetch(API_ENDPOINTS.contact, {
@@ -108,7 +115,8 @@ const ContactSection = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (validateErrors[name]) setValidateErrors((prev) => ({ ...prev, [name]: "" }));
+    if (validateErrors[name])
+      setValidateErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   return (
