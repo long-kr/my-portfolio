@@ -5,16 +5,17 @@ import whiteBg from "@/assets/image/bg-white.jpg";
 
 import { ProjectCard } from "@/components/card";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardTitle,
-    SVGIcon,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardTitle,
+  SVGIcon,
 } from "@/components/ui";
 import { appData, Project } from "@/config/appData";
 import { useIsClient } from "@/hooks/useIsClient";
 import { toTitleCase } from "@/lib/utils";
+import { track } from "@vercel/analytics";
 import { useTheme } from "next-themes";
 import React from "react";
 import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
@@ -26,15 +27,25 @@ const renderProjectCard = (project: Project, className?: string) => (
     <CardDescription className="flex w-full justify-start gap-2 text-lg">
       {project.github && (
         <span className="font-bold">
-          <a href={project.github} target="_blank">
+          <a
+            href={project.github}
+            target="_blank"
+            onClick={() =>
+              track("click_github_project", { project: project.name })
+            }
+          >
             Github
           </a>
         </span>
       )}
 
-      <span className="font-bold">
-        <a href={project.url} target="_blank">
-          Demo
+      <span className="font-bold underline">
+        <a
+          href={project.url}
+          target="_blank"
+          onClick={() => track("click_link_project", { project: project.name })}
+        >
+          Link
         </a>
       </span>
     </CardDescription>
