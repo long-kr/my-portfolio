@@ -1,7 +1,5 @@
-
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
-
 
 // Create a sliding-window rate limiter: 5 requests per minute per key
 const rateLimiter = new Ratelimit({
@@ -13,6 +11,7 @@ const rateLimiter = new Ratelimit({
 });
 
 /**
+ * @deprecated use rateLimitWrapper instead
  * Checks if the IP address has exceeded the rate limit.
  * @param ip - The IP address to check.
  * @returns A Promise that resolves to a boolean indicating whether the IP address has exceeded the rate limit.

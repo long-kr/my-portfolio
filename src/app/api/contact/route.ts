@@ -1,6 +1,6 @@
 import { ErrorResponse, SuccessResponse } from "@/lib";
+import rateLimitWrapper from "@/lib/rateLimitWrapper";
 import { NextResponse } from "next/server";
-import { sendEmailHandler } from "./service";
 
 /**
  * Contact API route
@@ -18,16 +18,19 @@ import { sendEmailHandler } from "./service";
  * @param request - The incoming HTTP request containing the email data
  * @returns HTTP Response containing the result of the email sending process
  */
-export async function POST(request: Request): Promise<NextResponse> {
-  try {
-    const emailData = await request.json();
+export const POST = rateLimitWrapper(
+  async (request: Request): Promise<NextResponse> => {
+    try {
+      console.log("Received email data:", request.body);
+      const emailData = await request.json();
+      console.log("Received email data:", emailData);
+      // await sendEmailHandler(emailData);
 
-    await sendEmailHandler(emailData);
+      return SuccessResponse({ message: "Email sent successfully" });
+    } catch (error) {
+      console.error("Error sending email:", error);
 
-    return SuccessResponse({ message: "Email sent successfully" });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    
-    return ErrorResponse("Failed to send email");
-  }
-}
+      return ErrorResponse("Failed to send email");
+    }
+  },
+);
