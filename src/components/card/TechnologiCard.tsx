@@ -3,7 +3,13 @@
 import { IconKeys } from "@/assets/svg";
 import { toTitleCase } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle, SVGIcon } from "../ui";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  ToolTipSVGIcon,
+} from "../ui";
 
 type TechnologiCardProps = {
   title: string;
@@ -49,10 +55,9 @@ export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
                 : "translate-y-4 opacity-0"
             }`}
           >
-            <SVGIcon
+            <ToolTipSVGIcon
               iconKey={iconKey}
               svgProps={{ className: "w-10 h-10" }}
-              className="self-center"
             />
           </li>
         ))}
