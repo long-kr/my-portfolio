@@ -3,13 +3,18 @@ import React from "react";
 
 interface SVGIconProps {
   iconKey: IconKeys;
+  divProps?: React.ComponentProps<"div">;
   svgProps?: React.ComponentProps<"svg">;
 }
 
-export const SVGIcon: React.FC<SVGIconProps> = ({ iconKey, svgProps }) => {
+export const SVGIcon: React.FC<SVGIconProps> = ({
+  iconKey,
+  divProps,
+  svgProps,
+}) => {
   const Icon = React.cloneElement(icons[iconKey], {
     ...svgProps,
   });
 
-  return <div>{Icon}</div>;
+  return <div {...divProps}>{Icon}</div>;
 };

@@ -32,7 +32,7 @@ export const SocialMediaButton = ({
               <SVGIcon
                 iconKey="contact"
                 svgProps={{
-                  className: "h-[1.3rem] w-[1.3rem]",
+                  className: "h-[1.2rem] w-[1.2rem]",
                   fill: "var(--primary-color)",
                 }}
               />
@@ -44,7 +44,7 @@ export const SocialMediaButton = ({
               <TooltipContent
                 asChild
                 forceMount
-                className="flex flex-col rounded bg-milk-white shadow dark:bg-slate-100"
+                className="flex flex-col rounded bg-milk-white shadow dark:bg-slate-100 dark:outline dark:outline-1 dark:outline-slate-200 dark:ring dark:ring-slate-200"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export const SocialMediaButton = ({
                   onMouseEnter={() => setIsOpen(true)}
                   onMouseLeave={() => setIsOpen(false)}
                 >
-                  {appData.social.map((item) => (
+                  {appData.social.map((item, i) => (
                     <a
                       key={item.name}
                       href={item.url}
@@ -63,12 +63,25 @@ export const SocialMediaButton = ({
                       className="block"
                     >
                       <motion.div
-                        whileHover={{ scale: 1.1 }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 10,
+                        }}
                         whileTap={{ scale: 0.95 }}
                       >
                         <SVGIcon
                           iconKey={item.icon}
-                          svgProps={{ className: "w-10 h-10 p-2" }}
+                          divProps={{
+                            className: "flex items-center justify-center",
+                          }}
+                          svgProps={
+                            i === appData.social.length - 1
+                              ? { width: "2rem", height: "2rem" }
+                              : {
+                                  width: "2.5rem",
+                                  height: "2.5rem",
+                                }
+                          }
                         />
                       </motion.div>
                     </a>
