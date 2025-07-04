@@ -10,9 +10,9 @@ import {
   CardDescription,
   CardFooter,
   CardTitle,
-  SVGIcon,
+  ToolTipSVGIcon,
 } from "@/components/ui";
-import { appData, Project } from "@/config/appData";
+import { appData, Project } from "@/config/data";
 import { useIsClient } from "@/hooks/useIsClient";
 import { toTitleCase } from "@/lib/utils";
 import { track } from "@vercel/analytics";
@@ -62,7 +62,7 @@ const renderProjectCard = (project: Project, className?: string) => (
       <span className="font-bold">Technologies:</span>
 
       {project.technologies.map((technology) => (
-        <SVGIcon
+        <ToolTipSVGIcon
           key={technology}
           iconKey={technology}
           svgProps={{ className: "w-10 h-10" }}

@@ -9,7 +9,6 @@ import {
   Input,
   Textarea,
 } from "@/components/ui";
-
 import DOMPurify from "dompurify";
 
 import { API_ENDPOINTS, ApiResponse } from "@/config";
@@ -65,18 +64,20 @@ const ContactSection = () => {
         message: DOMPurify.sanitize(formData.message),
       };
 
+      // Vercel analytic
       track("contact-form-submit", {
-        name: sanitizedData.name,
+        email: sanitizedData.email,
       });
 
-      // send and handle envelope
       const res = await fetch(API_ENDPOINTS.contact, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(sanitizedData),
       });
 
-      const payload = (await res.json()) as ApiResponse<{ message: string }>;
+      const payload = (await res.json()) as ApiResponse<{
+        message: string;
+      }>;
 
       if (!payload.success) {
         if (payload.details) setValidateErrors(payload.details);
@@ -114,9 +115,12 @@ const ContactSection = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (validateErrors[name])
+
+    if (validateErrors[name]) {
       setValidateErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
   return (
