@@ -1,12 +1,6 @@
 export const techIcon = {
   javascript: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="js">
         <g id="js_2">
           <path
@@ -24,13 +18,7 @@ export const techIcon = {
     </svg>
   ),
   typescript: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="typescript">
         <g id="typescript_2">
           <path
@@ -48,13 +36,7 @@ export const techIcon = {
     </svg>
   ),
   python: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="python">
         <g id="python_2">
           <path
@@ -151,13 +133,7 @@ export const techIcon = {
     </svg>
   ),
   nextjs: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="nextjs2">
         <g id="nextjs2_2">
           <path
@@ -217,13 +193,7 @@ export const techIcon = {
     </svg>
   ),
   jest: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="jest">
         <g id="jest_2">
           <path
@@ -241,13 +211,7 @@ export const techIcon = {
     </svg>
   ),
   playwright: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="playwright">
         <g id="playwright_2">
           <path
@@ -303,13 +267,7 @@ export const techIcon = {
     </svg>
   ),
   mongodb: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="mongodb">
         <g id="mongodb_2">
           <path
@@ -332,13 +290,7 @@ export const techIcon = {
     </svg>
   ),
   postgresql: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="postgresql">
         <g id="postgresql_2">
           <path
@@ -366,13 +318,7 @@ export const techIcon = {
     </svg>
   ),
   firebase: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="firebase">
         <g id="firebase_2">
           <path
@@ -400,13 +346,7 @@ export const techIcon = {
     </svg>
   ),
   aws: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="aws">
         <g id="aws_2">
           <path
@@ -433,13 +373,7 @@ export const techIcon = {
     </svg>
   ),
   git: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="git">
         <g id="git_2">
           <path
@@ -452,13 +386,7 @@ export const techIcon = {
     </svg>
   ),
   bash: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="bash">
         <g id="bash_2">
           <path
@@ -486,13 +414,7 @@ export const techIcon = {
     </svg>
   ),
   docker: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="docker">
         <g id="docker_2">
           <path
@@ -550,13 +472,7 @@ export const techIcon = {
     </svg>
   ),
   postman: (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="postman">
         <g id="postman_2">
           <path
