@@ -54,9 +54,7 @@ export default function RootLayout({
             </MainContainer>
           </div>
 
-          <Suspense>
-            <SocialMediaButton />
-          </Suspense>
+          <SocialMediaButton />
 
           <ThemeToggle />
         </ThemeProvider>

@@ -44,10 +44,10 @@ export const SocialMediaButton = ({
               <TooltipContent
                 asChild
                 forceMount
-                className="flex flex-col bg-milk-white shadow"
+                className="flex flex-col rounded bg-milk-white shadow dark:bg-slate-100"
               >
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 5 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
@@ -65,7 +65,6 @@ export const SocialMediaButton = ({
                       <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        className="transition-transform duration-200"
                       >
                         <SVGIcon
                           iconKey={item.icon}
