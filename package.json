@@ -24,6 +24,8 @@
     "clsx": "^2.1.1",
     "dompurify": "^3.2.5",
     "express-rate-limit": "^7.5.0",
+    "framer-motion": "^12.23.0",
+    "liquid-glass-react": "^1.1.1",
     "lucide-react": "^0.475.0",
     "my-portfolio": "file:",
     "next": "^15.3.2",

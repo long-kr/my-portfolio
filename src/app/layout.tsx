@@ -1,8 +1,9 @@
 import { MainContainer } from "@/components/container/MainContainer";
 import { SideBar } from "@/components/sidebar";
 import { ThemeToggle } from "@/components/theme";
+import { SocialMediaButton } from "@/components/ui";
 import { ProgressBar } from "@/components/ui/ProgressBar";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -53,11 +54,12 @@ export default function RootLayout({
             </MainContainer>
           </div>
 
+          <SocialMediaButton />
+
           <ThemeToggle />
         </ThemeProvider>
 
-        {/* Vercel Analytics */}
-        <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   );
