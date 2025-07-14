@@ -2,6 +2,7 @@ import { PostgresStore } from "@acpr/rate-limit-postgresql";
 import rateLimit from "express-rate-limit";
 import { NextRequest, NextResponse } from "next/server";
 
+// Server configuration for the rate limiter
 const SERVER_CONFIG = {
   ENV: {
     DB_USER: process.env.DB_USER,
@@ -12,19 +13,34 @@ const SERVER_CONFIG = {
   },
 };
 
-export default function rateLimitWrapper(
+/**
+ * Wraps a Next.js API route handler with rate limiting using PostgreSQL.
+ * Based on: https://github.com/express-rate-limit/rate-limit-postgresql/issues/36
+ *
+ * @example
+ * // Basic usage
+ * export const GET = rateLimitWrapper(
+ *   async (req: NextRequest, { params }) => {
+ *     return NextResponse.json({ message: "Success" });
+ *   }
+ * );
+ *
+ * @returns NextResponse - Returns the handler's response or a 429 error
+ * @throws {Error} 429 - When rate limit is exceeded (2 requests/minute/IP)
+ */
+export default function rateLimitWrapper<T = Record<string, string>>(
   handler: (
     req: NextRequest,
-    params: { params: Promise<Record<string, string>> },
+    params: { params: Promise<T> },
   ) => Promise<NextResponse>,
 ) {
   return async (
     req: NextRequest,
-    params: { params: Promise<Record<string, string>> },
+    params: { params: Promise<T> },
   ): Promise<NextResponse> => {
     const limiter = rateLimit({
       windowMs: 60 * 1000,
-      limit: 5,
+      limit: 2,
       standardHeaders: "draft-7",
       legacyHeaders: false,
       store: new PostgresStore(
@@ -37,18 +53,13 @@ export default function rateLimitWrapper(
         },
         "aggregated_store",
       ),
-      keyGenerator: (req) => {
-        return req.headers["x-forwarded-for"] ?? "0.0.0.0";
-      },
+      keyGenerator: (req) => req.headers["x-forwarded-for"] ?? "0.0.0.0",
       handler: (req) => {
         if (req.rateLimit.remaining === 0) {
-          throw new Error();
+          throw new Error("Rate limit exceeded");
         }
       },
     });
-
-    console.log("dirname", __dirname);
-    console.log("cwd", process.cwd());
 
     try {
       const mockRes = {
@@ -65,7 +76,10 @@ export default function rateLimitWrapper(
 
       return await handler(req, params);
     } catch {
-      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+      return NextResponse.json(
+        { error: "Too many requests, please try again later." },
+        { status: 429 },
+      );
     }
   };
 }

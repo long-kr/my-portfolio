@@ -6,12 +6,10 @@
     "version": "20.13.*"
   },
   "scripts": {
-    "postinstall": "tsx script/copy-migrations.ts",
-    "dev": "npm run copy && next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "copy": "tsx script/copy-migrations.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@acpr/rate-limit-postgresql": "^1.4.1",
