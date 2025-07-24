@@ -2,16 +2,32 @@ import { PostgresStore } from "@acpr/rate-limit-postgresql";
 import rateLimit from "express-rate-limit";
 import { NextRequest, NextResponse } from "next/server";
 
-// Server configuration for the rate limiter
-const SERVER_CONFIG = {
-  ENV: {
-    DB_USER: process.env.DB_USER,
-    DB_PASSWORD: process.env.DB_PASSWORD,
-    DB_HOST: process.env.DB_HOST,
-    DB_NAME: process.env.DB_NAME,
-    DB_PORT: process.env.DB_PORT,
+export const store = new PostgresStore(
+  {
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
   },
-};
+  "aggregated_store",
+);
+
+// Server configuration for the rate limiter
+
+const limiter = rateLimit({
+  windowMs: 60 * 1000,
+  limit: 2,
+  standardHeaders: "draft-7",
+  legacyHeaders: false,
+  store,
+  keyGenerator: (req) => req.headers["x-forwarded-for"] ?? "0.0.0.0",
+  handler: (req) => {
+    if (req.rateLimit.remaining === 0) {
+      throw new Error("Rate limit exceeded");
+    }
+  },
+});
 
 /**
  * Wraps a Next.js API route handler with rate limiting using PostgreSQL.
@@ -31,36 +47,13 @@ const SERVER_CONFIG = {
 export default function rateLimitWrapper<T = Record<string, string>>(
   handler: (
     request: NextRequest,
-    params: { params: Promise<T> },
+    params?: { params: Promise<T> },
   ) => Promise<NextResponse>,
 ) {
   return async (
     req: NextRequest,
     params: { params: Promise<T> },
   ): Promise<NextResponse> => {
-    const limiter = rateLimit({
-      windowMs: 60 * 1000,
-      limit: 2,
-      standardHeaders: "draft-7",
-      legacyHeaders: false,
-      store: new PostgresStore(
-        {
-          user: SERVER_CONFIG.ENV.DB_USER,
-          password: SERVER_CONFIG.ENV.DB_PASSWORD,
-          host: SERVER_CONFIG.ENV.DB_HOST,
-          database: SERVER_CONFIG.ENV.DB_NAME,
-          port: SERVER_CONFIG.ENV.DB_PORT,
-        },
-        "aggregated_store",
-      ),
-      keyGenerator: (req) => req.headers["x-forwarded-for"] ?? "0.0.0.0",
-      handler: (req) => {
-        if (req.rateLimit.remaining === 0) {
-          throw new Error("Rate limit exceeded");
-        }
-      },
-    });
-
     try {
       const mockRes = {
         setHeader: () => {},
