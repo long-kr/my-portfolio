@@ -30,7 +30,7 @@ const SERVER_CONFIG = {
  */
 export default function rateLimitWrapper<T = Record<string, string>>(
   handler: (
-    req: NextRequest,
+    request: NextRequest,
     params: { params: Promise<T> },
   ) => Promise<NextResponse>,
 ) {
