@@ -2,7 +2,7 @@ import { PostgresStore } from "@acpr/rate-limit-postgresql";
 import rateLimit from "express-rate-limit";
 import { NextRequest, NextResponse } from "next/server";
 
-export const store = new PostgresStore(
+const store = new PostgresStore(
   {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,

@@ -7,9 +7,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 const mockRes = jest.fn(async () => NextResponse.json({ success: true }));
 
-const mockReq = (ip: string = "127.0.0.1", url = "/api/test", method = "GET") =>
-  new NextRequest(`http://localhost${url}`, {
-    method,
+const mockReq = (ip: string = "127.0.0.1") =>
+  new NextRequest(`http://localhost:3000`, {
     headers: new Headers({
       "Content-Type": "application/json",
       "x-forwarded-for": ip,
