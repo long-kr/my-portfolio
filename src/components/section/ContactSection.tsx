@@ -85,7 +85,7 @@ const ContactSection = () => {
       }
 
       toast.success(payload.data.message);
-      setFormData(formDataInitial);
+      // setFormData(formDataInitial);
       setValidateErrors({});
     } catch (err: unknown) {
       if (err instanceof z.ZodError) {
@@ -100,12 +100,9 @@ const ContactSection = () => {
         return;
       }
 
-      const errorMessage =
-        err instanceof Error
-          ? err.message
-          : "Failed to send message. Please try again.";
-
-      toast.error(errorMessage);
+      toast.error(
+        "Fail to send message.\nPlease contact me at longkr.work@gmail.com",
+      );
     } finally {
       setIsSubmitting(false);
     }

@@ -1,5 +1,11 @@
 import nodemailer from "nodemailer";
 
+/**
+ * Sends an email using the provided email data.
+ *
+ * @param emailData - The email data containing name, email, subject, and message.
+ * @returns A Promise that resolves when the email is sent successfully.
+ */
 export const sendEmailHandler = async (emailData: {
   name: string;
   email: string;
