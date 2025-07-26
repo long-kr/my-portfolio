@@ -42,5 +42,4 @@ next-env.d.ts
 
 # ide
 .cursor/
-.windsurfrules
 .windsurf/
