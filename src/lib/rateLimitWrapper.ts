@@ -1,20 +1,34 @@
 import { PostgresStore } from "@acpr/rate-limit-postgresql";
 import rateLimit, { type RateLimitRequestHandler } from "express-rate-limit";
 import { NextRequest, NextResponse } from "next/server";
-import { Client } from "pg";
+import { Pool } from "pg";
 
-// Create a connection pool that can be managed
-export const client = new Client({
+const pool = new Pool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
   port: Number(process.env.DB_PORT),
+  allowExitOnIdle: true, // Allow the pool to exit when idle
+  keepAlive: false, // Ensure the connection is kept alive
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
+  maxLifetimeSeconds: 60,
 });
+
+// Create a connection pool that can be managed
+// export const client = new Client({
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASSWORD,
+//   host: process.env.DB_HOST,
+//   database: process.env.DB_NAME,
+//   port: Number(process.env.DB_PORT),
+//   keepAlive: false,
+// });
 
 const store: PostgresStore = new PostgresStore(
   {
-    client,
+    pool,
   },
   "aggregated_store",
 );
