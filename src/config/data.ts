@@ -87,7 +87,7 @@ export const appData = {
     },
     {
       name: "WeLoveMovies",
-      url: "https://starter-movie-front-end-tau.vercel.app/movies",
+      url: "https://welovemovie.netlify.app/",
       image: movieImage,
       github: "https://github.com/long-kr/WeLoveMovies",
       type: "school project",
