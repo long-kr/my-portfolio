@@ -5,12 +5,10 @@ import { SideBarHeader } from "./SideBarHeader";
 
 export const SideBar: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
-}) => {
-  return (
-    <nav className={cn(className)}>
-      <SideBarHeader className="h-auto w-auto lg:p-6 xl:p-12" />
+}) => (
+  <nav className={cn(className)}>
+    <SideBarHeader className="h-auto w-auto lg:p-6 xl:p-12" />
 
-      <Navigation className={cn("w-full")} />
-    </nav>
-  );
-};
+    <Navigation className={cn("w-full")} />
+  </nav>
+);
