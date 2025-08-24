@@ -121,10 +121,7 @@ const ContactSection = () => {
   };
 
   return (
-    <ScrollAnimationWrapper
-      id="contact"
-      className="container mx-auto px-4 py-8"
-    >
+    <ScrollAnimationWrapper className="container mx-auto px-4 py-8">
       <Card className="mx-auto max-w-2xl">
         <CardHeader>
           <CardTitle>Contact Me</CardTitle>

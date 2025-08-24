@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
@@ -61,7 +60,6 @@ export const AnimatedText = ({
           ),
         )}
       </div>
-      <span className="via-primary/80 absolute -bottom-2 left-0 h-1 w-full animate-[width_2s_ease-in-out_infinite] bg-gradient-to-r from-primary to-primary" />
     </div>
   );
 };
