@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui";
-import { Project } from "@/config";
-import { DEFAULT_IMAGE } from "@/config/constant";
+import { DEFAULT_IMAGE, Project } from "@/config";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -23,6 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         className,
       )}
     >
+      {/* // Info for mobile */}
       {renderInfo(
         project,
         "hidden min-h-full flex-col items-center gap-5 py-10 text-lg group-hover:flex md:group-hover:hidden",
@@ -37,10 +37,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           loading="lazy"
           className="object-cover"
         />
+        {/* <iframe
+          src={project.url}
+          width="100%"
+          height="550"
+          style={{ border: `1px solid #ccc`, borderRadius: `8px` }}
+          loading="lazy"
+
+        ></iframe> */}
       </CardContent>
     </Card>
   );
 };
 
 export { ProjectCard };
-

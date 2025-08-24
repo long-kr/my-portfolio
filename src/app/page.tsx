@@ -55,15 +55,15 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="mb-24">
+      <div id="about" className="mb-24">
         <AboutSection />
       </div>
 
-      <div className="mb-24 py-16">
+      <div id="project" className="mb-24 py-16">
         <ProjectsSection />
       </div>
 
-      <div className="mb-24 py-16">
+      <div id="contact" className="mb-24 py-16">
         <ContactSection />
       </div>
     </>

@@ -89,6 +89,7 @@ const ProjectInforDisplay = ({ project }: { project: Project }) => {
           }}
         />
       )}
+
       {/* Content */}
       <Card className="group relative w-full border-none shadow-none">
         {renderProjectCard(
@@ -101,13 +102,10 @@ const ProjectInforDisplay = ({ project }: { project: Project }) => {
 };
 
 const ProjectsSection = () => {
-  const projects = appData.projects;
+  const { projects } = appData;
 
   return (
-    <ScrollAnimationWrapper
-      id="projects"
-      className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4"
-    >
+    <ScrollAnimationWrapper className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4">
       <h2 className="col-span-2 mb-12 text-center text-4xl font-bold">
         My Projects
       </h2>
@@ -126,7 +124,5 @@ const ProjectsSection = () => {
     </ScrollAnimationWrapper>
   );
 };
-
-ProjectsSection.displayName = "ProjectsSection";
 
 export default ProjectsSection;
