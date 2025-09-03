@@ -72,7 +72,7 @@ export const appData = {
     },
     {
       name: "Restaurant Management System",
-      url: "https://final-cap-reservations-cliend.vercel.app/dashboard",
+      url: "https://reservation-longkr.netlify.app/",
       image: reservationImage,
       github: "https://github.com/long-kr/Project-Restaurant_Reservation",
       type: "school project",
