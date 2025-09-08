@@ -4,7 +4,8 @@
     "editor.codeActionsOnSave": {
         // "source.fixAll.eslint": true,
         "source.removeUnusedImports": "explicit",
-		"source.sortImports": "explicit"
+        "source.sortImports": "explicit"
     },
     "zencoder.enableRepoIndexing": true,
+    "chatgpt.openOnStartup": true,
 }

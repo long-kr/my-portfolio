@@ -12,12 +12,7 @@ const createJestConfig = nextJest({
 });
 
 const config: Config = {
-  // Stop running tests after `n` failures
-  // bail: 0,
-
-  // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
-
   preset: "ts-jest/presets/js-with-ts",
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
@@ -26,7 +21,7 @@ const config: Config = {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
   testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
-  testMatch: ["<rootDir>/__tests__/**/*.(test|spec).{js,jsx,ts,tsx}"],
+  testMatch: ["<rootDir>/src/__tests__/**/*.(test|spec).{js,jsx,ts,tsx}"],
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
