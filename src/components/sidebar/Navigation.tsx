@@ -10,7 +10,7 @@ interface NavigationProps {
   className?: string;
 }
 
-const Navigation = ({ className }: NavigationProps) => {
+export const Navigation = ({ className }: NavigationProps) => {
   const isClient = useIsClient();
 
   const ref = useRef<HTMLDivElement>(null);
@@ -52,7 +52,7 @@ const Navigation = ({ className }: NavigationProps) => {
     >
       <ul className="flex flex-row justify-between sm:justify-evenly lg:flex-col">
         {navItems.map((item) => (
-          <li className="pb-5 pt-0" key={item.title}>
+          <li className="lg:pb-5 lg:pt-0" key={item.title}>
             <Link
               className={cn(
                 "font-bold transition-all duration-200 hover:font-normal hover:text-secondary",
@@ -67,5 +67,3 @@ const Navigation = ({ className }: NavigationProps) => {
     </div>
   );
 };
-
-export { Navigation };

@@ -7,5 +7,5 @@
         "source.sortImports": "explicit"
     },
     "zencoder.enableRepoIndexing": true,
-    "chatgpt.openOnStartup": true,
+    "chatgpt.openOnStartup": false,
 }

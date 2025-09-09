@@ -50,8 +50,8 @@ export default {
         "neutral-700": "var(--neutral-700)",
         "neutral-800": "var(--neutral-800)",
         "neutral-900": "var(--neutral-900)",
-      }
+      },
     },
     plugins: [tailwindcssAnimate],
-  }
+  },
 } satisfies Config;
