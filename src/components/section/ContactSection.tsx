@@ -11,7 +11,8 @@ import {
 } from "@/components/ui";
 import DOMPurify from "dompurify";
 
-import { API_ENDPOINTS, ApiResponse } from "@/config";
+import { API_ENDPOINTS } from "@/config";
+import { ApiResponse } from "@/lib/responses";
 import { track } from "@vercel/analytics";
 import { useState } from "react";
 import { toast } from "sonner";

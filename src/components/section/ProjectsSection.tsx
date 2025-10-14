@@ -1,5 +1,5 @@
 import { ProjectCard, ProjectInformation } from "@/components/card";
-import { appData } from "@/config/data";
+import { appData } from "@/config";
 import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
 
 const ProjectsSection = () => {
@@ -18,10 +18,13 @@ const ProjectsSection = () => {
           >
             <ProjectCard
               project={project}
-              className="stagger-item col-span-2"
+              className="stagger-item border-1 col-span-2 p-2 hover:shadow-sm"
             />
 
-            <ProjectInformation project={project} className="col-span-1" />
+            <ProjectInformation
+              project={project}
+              className="border-1 col-span-1 p-2 shadow-sm"
+            />
           </div>
         ))}
       </div>

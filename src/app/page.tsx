@@ -26,17 +26,6 @@ const ProjectsSection = dynamic(
   },
 );
 
-const ContactSection = dynamic(
-  () => import("@/components/section/ContactSection"),
-  {
-    loading: () => (
-      <div className="flex min-h-[50vh] items-center justify-center">
-        Loading contact section...
-      </div>
-    ),
-  },
-);
-
 export default function Home() {
   return (
     <>
@@ -44,9 +33,9 @@ export default function Home() {
         <div className="sticky top-0 flex h-[75vh] items-center justify-center md:h-screen">
           <div className="relative">
             <h1 className="text-2xl font-bold sm:text-4xl md:text-6xl">
-              Hi, I&apos;m{" "}
+              Hi!{" "}
               <AnimatedText
-                text={appData.name}
+                text={`I'm ${appData.name}`}
                 className="relative inline-block"
                 delay={0.1}
               />
@@ -63,9 +52,9 @@ export default function Home() {
         <ProjectsSection />
       </div>
 
-      <div id="contact" className="mb-24 py-16">
+      {/* <div id="contact" className="mb-24 py-16">
         <ContactSection />
-      </div>
+      </div> */}
     </>
   );
 }

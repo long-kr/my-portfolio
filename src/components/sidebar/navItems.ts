@@ -11,10 +11,10 @@ const navItems = [
         title: "Project",
         link: "/#project",
     },
-    {
-        title: "Contact",
-        link: "/#contact",
-    },
+    // {
+    //     title: "Contact",
+    //     link: "/#contact",
+    // },
 ];
 
 export default navItems;

@@ -1,13 +1,7 @@
 "use client";
 
-import darkBg from "@/assets/image/bg-black.webp";
-import whiteBg from "@/assets/image/bg-white.jpg";
-
 import { Project } from "@/config";
-import { useIsClient } from "@/hooks";
-import { cn, toTitleCase } from "@/lib";
-import { track } from "@vercel/analytics";
-import { useTheme } from "next-themes";
+import { cn } from "@/lib";
 import {
   Card,
   CardContent,
@@ -24,9 +18,6 @@ export const ProjectInformation = ({
   project: Project;
   className?: string;
 }) => {
-  const { resolvedTheme } = useTheme();
-  const isClient = useIsClient();
-
   return (
     <div
       className={cn(
@@ -34,18 +25,6 @@ export const ProjectInformation = ({
         className,
       )}
     >
-      {/* Background image container */}
-      {isClient && (
-        <div
-          className="absolute inset-0 blur-[1px]"
-          style={{
-            backgroundImage: `url(${resolvedTheme === "dark" ? whiteBg.src : darkBg.src})`,
-            backgroundSize: "100% 100%",
-            backgroundPosition: "center",
-          }}
-        />
-      )}
-
       {/* Content */}
       <Card className="group relative w-full border-none shadow-none">
         <CardContent
@@ -56,42 +35,8 @@ export const ProjectInformation = ({
           <CardTitle className="text-2xl">{project.name}</CardTitle>
 
           <CardDescription className="flex w-full flex-col justify-start gap-2 text-lg">
-            <p className="flex gap-2">
-              {project.github && (
-                <span className="font-bold">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    onClick={() =>
-                      track("click_github_project", { project: project.name })
-                    }
-                  >
-                    Github
-                  </a>
-                </span>
-              )}
-              <span className="font-bold">
-                <a
-                  href={project.url}
-                  target="_blank"
-                  onClick={() =>
-                    track("click_link_project", { project: project.name })
-                  }
-                >
-                  Live
-                </a>
-              </span>
-            </p>
-
-            <p>
-              <span className="font-bold">Type:</span>{" "}
-              {toTitleCase(project.type)}
-            </p>
-
-            <p>
-              <span className="font-bold">Description:</span>{" "}
-              {project.description}
-            </p>
+            <span className="font-bold">Description:</span>{" "}
+            {project.description}
           </CardDescription>
 
           <CardFooter className="flex w-full flex-col justify-start gap-2 p-0">

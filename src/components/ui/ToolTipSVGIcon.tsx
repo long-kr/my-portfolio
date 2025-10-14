@@ -8,12 +8,12 @@ import {
 } from "@radix-ui/react-tooltip";
 import React from "react";
 
-type ToolTipSVGIconProps = {
+type IconWithToolTip = {
   iconKey: IconKeys;
   svgProps?: React.ComponentProps<"svg">;
 } & Partial<React.ComponentProps<typeof TooltipProvider>>;
 
-export const ToolTipSVGIcon: React.FC<ToolTipSVGIconProps> = ({
+export const IconWithToolTip: React.FC<IconWithToolTip> = ({
   iconKey,
   svgProps,
   ...props
