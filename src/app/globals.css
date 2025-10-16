@@ -10,134 +10,87 @@
 /* -------------------------------- */
 @layer base {
   :root {
-    /* Color System - Light Theme */
-    /* Base colors */
+    /* Custom theme colors */
     --primary-color: #99bc85;
     --secondary-color: #e4efe7;
     --light-off-white-color: #fdfaf6;
     --milk-white-color: #faf1e6;
 
-    /* Primary color variations */
-    --primary-color-light: #b3d0a3;
-    --primary-color-dark: #7a9b6a;
-    --primary-color-hover: #8aab7a;
-    --primary-color-active: #6a8b5a;
-
-    /* Secondary color variations */
-    --secondary-color-light: #f0f7f3;
-    --secondary-color-dark: #d8e7de;
-    --secondary-color-hover: #e4efe7;
-    --secondary-color-active: #d0e1d6;
-
-    /* Light color variations */
-    --light-color-hover: #fdfaf6;
-    --light-color-active: #f5f0e6;
-
-    /* Semantic colors */
-    --success-color: #99bc85;
-    --warning-color: #e4efe7;
-    --error-color: #d8e7de;
-    --info-color: #b3d0a3;
-
-    /* Neutral colors */
-    --neutral-50: #fdfaf6;
-    --neutral-100: #faf1e6;
-    --neutral-200: #f5e6d6;
-    --neutral-300: #e4efe7;
-    --neutral-400: #d8e7de;
-    --neutral-500: #99bc85;
-    --neutral-600: #7a9b6a;
-    --neutral-700: #6a8b5a;
-    --neutral-800: #5a7b4a;
-    --neutral-900: #4a6b3a;
-
-    /* UI Component Variables - Light Theme */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-
-    /* Sizing and Spacing */
-    --radius: 0.5rem;
+    /* Design tokens */
+    --background: #fdfaf6;
+    --foreground: #2d3e2e;
+    --card: #ffffff;
+    --card-foreground: #2d3e2e;
+    --popover: #ffffff;
+    --popover-foreground: #2d3e2e;
+    --primary: #99bc85;
+    --primary-foreground: #ffffff;
+    --secondary: #e4efe7;
+    --secondary-foreground: #2d3e2e;
+    --muted: #faf1e6;
+    --muted-foreground: #6b7c6b;
+    --accent: #e4efe7;
+    --accent-foreground: #2d3e2e;
+    --destructive: #d4183d;
+    --destructive-foreground: #ffffff;
+    --border: rgba(153, 188, 133, 0.2);
+    --input: transparent;
+    --input-background: #ffffff;
+    --switch-background: #d4dfd4;
+    --font-weight-medium: 500;
+    --font-weight-normal: 400;
+    --ring: #99bc85;
+    --chart-1: #99bc85;
+    --chart-2: #7da86d;
+    --chart-3: #c5d9bc;
+    --chart-4: #e4efe7;
+    --chart-5: #b8ccb0;
+    --radius: 0.625rem;
+    --sidebar: #fdfaf6;
+    --sidebar-foreground: #2d3e2e;
+    --sidebar-primary: #99bc85;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #e4efe7;
+    --sidebar-accent-foreground: #2d3e2e;
+    --sidebar-border: rgba(153, 188, 133, 0.2);
+    --sidebar-ring: #99bc85;
   }
 
   .dark {
-    /* Color System - Dark Theme */
-    /* Base colors */
-    --primary-color: #7a9b6a;
-    --secondary-color: #2a3b24;
-    --light-off-white-color: #1a1a1a;
-    --milk-white-color: #2a2a2a;
-
-    /* Primary color variations */
-    --primary-color-light: #8aab7a;
-    --primary-color-dark: #6a8b5a;
-    --primary-color-hover: #5a7b4a;
-    --primary-color-active: #4a6b3a;
-
-    /* Secondary color variations */
-    --secondary-color-light: #3a4b34;
-    --secondary-color-dark: #1a2b14;
-    --secondary-color-hover: #2a3b24;
-    --secondary-color-active: #1a2b14;
-
-    /* Light color variations */
-    --light-color-hover: #2a2a2a;
-    --light-color-active: #3a3a3a;
-
-    /* Semantic colors */
-    --success-color: #7a9b6a;
-    --warning-color: #2a3b24;
-    --error-color: #1a2b14;
-    --info-color: #8aab7a;
-
-    /* Neutral colors */
-    --neutral-50: #1a1a1a;
-    --neutral-100: #2a2a2a;
-    --neutral-200: #3a3a3a;
-    --neutral-300: #4a4a4a;
-    --neutral-400: #5a5a5a;
-    --neutral-500: #7a9b6a;
-    --neutral-600: #6a8b5a;
-    --neutral-700: #5a7b4a;
-    --neutral-800: #4a6b3a;
-    --neutral-900: #3a5b2a;
-
-    /* UI Component Variables - Dark Theme */
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --background: #1a2419;
+    --foreground: #e4efe7;
+    --card: #243222;
+    --card-foreground: #e4efe7;
+    --popover: #243222;
+    --popover-foreground: #e4efe7;
+    --primary: #99bc85;
+    --primary-foreground: #1a2419;
+    --secondary: #2d3e2e;
+    --secondary-foreground: #e4efe7;
+    --muted: #2d3e2e;
+    --muted-foreground: #9caa9c;
+    --accent: #3a4f3a;
+    --accent-foreground: #e4efe7;
+    --destructive: #d4183d;
+    --destructive-foreground: #ffffff;
+    --border: rgba(153, 188, 133, 0.3);
+    --input: rgba(153, 188, 133, 0.2);
+    --ring: #99bc85;
+    --font-weight-medium: 500;
+    --font-weight-normal: 400;
+    --chart-1: #99bc85;
+    --chart-2: #7da86d;
+    --chart-3: #c5d9bc;
+    --chart-4: #e4efe7;
+    --chart-5: #b8ccb0;
+    --sidebar: #1a2419;
+    --sidebar-foreground: #e4efe7;
+    --sidebar-primary: #99bc85;
+    --sidebar-primary-foreground: #1a2419;
+    --sidebar-accent: #2d3e2e;
+    --sidebar-accent-foreground: #e4efe7;
+    --sidebar-border: rgba(153, 188, 133, 0.3);
+    --sidebar-ring: #99bc85;
   }
 }
 
@@ -147,13 +100,23 @@
 html,
 body {
   min-height: 100%;
-  color: var(--primary-color);
   background-color: var(--light-off-white-color);
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--foreground);
+}
+
+p {
+  color: var(--muted-foreground);
 }
 
 .dark html,
 .dark body {
-  color: var(--primary-color);
   background-color: var(--light-off-white-color);
 }
 

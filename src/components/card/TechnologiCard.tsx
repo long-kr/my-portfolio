@@ -38,14 +38,14 @@ export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
   }, [icons]);
 
   return (
-    <Card className="border-none shadow-none">
+    <Card className='border-none shadow-none'>
       <CardHeader>
-        <CardTitle className="border-b border-primary">
+        <CardTitle className='border-b border-primary'>
           {toTitleCase(title)}
         </CardTitle>
       </CardHeader>
 
-      <CardContent role="ul" className="flex list-none flex-wrap gap-5">
+      <CardContent role='ul' className='flex list-none flex-wrap gap-5'>
         {icons.map((iconKey, index) => (
           <li
             key={iconKey}
@@ -57,7 +57,8 @@ export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
           >
             <ToolTipSVGIcon
               iconKey={iconKey}
-              svgProps={{ className: "w-10 h-10" }}
+              svgProps={{ className: "w-10 h-10", fill: "black" }}
+              isMoveable
             />
           </li>
         ))}

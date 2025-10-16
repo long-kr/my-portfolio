@@ -1,5 +1,5 @@
 import { IconKeys, icons } from "@/assets/svg";
-import { toTitleCase } from "@/lib/utils";
+import { cn, toTitleCase } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
@@ -7,15 +7,18 @@ import {
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 import React from "react";
+import { Badge } from "./badge";
 
 type IconWithToolTip = {
   iconKey: IconKeys;
   svgProps?: React.ComponentProps<"svg">;
+  isMoveable?: boolean;
 } & Partial<React.ComponentProps<typeof TooltipProvider>>;
 
 export const IconWithToolTip: React.FC<IconWithToolTip> = ({
   iconKey,
   svgProps,
+  isMoveable = false,
   ...props
 }) => {
   const Icon = React.cloneElement(icons[iconKey], {
@@ -26,11 +29,21 @@ export const IconWithToolTip: React.FC<IconWithToolTip> = ({
     <TooltipProvider {...props}>
       <Tooltip>
         <TooltipTrigger asChild>
-          <div>{Icon}</div>
+          <Badge
+            variant='secondary'
+            className={cn(
+              "text-muted px-3 py-1",
+              isMoveable
+                ? "transition-transform duration-300 hover:translate-x-2 hover:translate-y-2"
+                : "",
+            )}
+          >
+            {toTitleCase(iconKey)}
+          </Badge>
         </TooltipTrigger>
 
-        <TooltipContent className="bg-milk-white shadow">
-          {toTitleCase(iconKey)}
+        <TooltipContent className='z-10 rounded bg-milk-white p-2 shadow-lg'>
+          {Icon}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
