@@ -8,7 +8,7 @@ const AboutSection = dynamic(
   () => import("@/components/section/AboutSection"),
   {
     loading: () => (
-      <div className="flex min-h-[50vh] items-center justify-center">
+      <div className='flex min-h-[50vh] items-center justify-center'>
         Loading about section...
       </div>
     ),
@@ -19,7 +19,7 @@ const ProjectsSection = dynamic(
   () => import("@/components/section/ProjectsSection"),
   {
     loading: () => (
-      <div className="flex min-h-[50vh] items-center justify-center">
+      <div className='flex min-h-[50vh] items-center justify-center'>
         Loading projects...
       </div>
     ),
@@ -29,14 +29,14 @@ const ProjectsSection = dynamic(
 export default function Home() {
   return (
     <>
-      <section className="relative min-h-[75vh] md:min-h-[100vh]">
-        <div className="sticky top-0 flex h-[75vh] items-center justify-center md:h-screen">
-          <div className="relative">
-            <h1 className="text-2xl font-bold sm:text-4xl md:text-6xl">
+      <section className='relative min-h-[75vh] md:min-h-[100vh]'>
+        <div className='sticky top-0 flex h-[75vh] items-center justify-center md:h-screen'>
+          <div className='relative'>
+            <h1 className='text-2xl font-bold sm:text-4xl md:text-6xl'>
               Hi!{" "}
               <AnimatedText
                 text={`I'm ${appData.name}`}
-                className="relative inline-block"
+                className='relative inline-block'
                 delay={0.1}
               />
             </h1>
@@ -44,11 +44,11 @@ export default function Home() {
         </div>
       </section>
 
-      <div id="about" className="mb-24">
+      <div id='about' className='mb-24'>
         <AboutSection />
       </div>
 
-      <div id="project" className="mb-24 py-16">
+      <div id='project' className='mb-24 py-16'>
         <ProjectsSection />
       </div>
 

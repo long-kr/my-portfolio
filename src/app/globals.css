@@ -1,18 +1,3 @@
-/**
- * Main CSS file for the portfolio website
- * 
- * Table of Contents:
- * 1. Tailwind Directives
- * 2. Theme Variables
- *    - Light Theme
- *    - Dark Theme
- * 3. Base Styles
- * 4. Component Styles
- *    - Scroll Animations
- *    - NProgress Customization
- * 5. Animations
- */
-
 /* -------------------------------- */
 /* 1. Tailwind Directives          */
 /* -------------------------------- */
@@ -275,21 +260,6 @@ body {
 /* 5. Animations                   */
 /* -------------------------------- */
 
-@keyframes tooltip-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.tooltip-fade-in {
-  animation: tooltip-fade-in 0.2s ease-out forwards;
-}
-
 /* Fade In Up Animation */
 @keyframes fadeInUp {
   from {
@@ -299,48 +269,5 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Morphing Border Radius Animation */
-@keyframes morphRadius {
-  0% {
-    border-radius: 50% 55% 45% 40%;
-  }
-  25% {
-    border-radius: 52% 48% 55% 45%;
-  }
-  50% {
-    border-radius: 58% 42% 55% 45%;
-  }
-  75% {
-    border-radius: 55% 45% 50% 50%;
-  }
-  100% {
-    border-radius: 50% 55% 45% 40%;
-  }
-}
-
-/* Color Cycling Animation */
-@keyframes colorCycle {
-  0% {
-    border-color: #ff6b6b;
-    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
-  }
-  25% {
-    border-color: #cadb35;
-    box-shadow: 0 0 15px rgba(190, 218, 70, 0.5);
-  }
-  50% {
-    border-color: #45b7d1;
-    box-shadow: 0 0 15px rgba(69, 183, 209, 0.5);
-  }
-  75% {
-    border-color: #96ceb4;
-    box-shadow: 0 0 15px rgba(150, 206, 180, 0.5);
-  }
-  100% {
-    border-color: #ff6b6b;
-    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
   }
 }
