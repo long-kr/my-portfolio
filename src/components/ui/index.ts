@@ -11,7 +11,7 @@ export {
 export { Input } from "./Input";
 export { ProgressBar } from "./ProgressBar";
 export { ScrollText } from "./ScrollText";
-export { SocialMediaButton } from "./SocialMediaButton";
+
 export { SVGIcon } from "./SVGIcon";
 export { Textarea } from "./Textarea";
 export {

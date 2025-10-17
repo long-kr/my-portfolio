@@ -57,7 +57,7 @@ export const TechnologiCard = ({ title, icons = [] }: TechnologiCardProps) => {
           >
             <ToolTipSVGIcon
               iconKey={iconKey}
-              svgProps={{ className: "w-10 h-10", fill: "black" }}
+              svgProps={{ className: "w-10 h-10" }}
               isMoveable
             />
           </li>
