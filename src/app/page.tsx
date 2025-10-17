@@ -4,6 +4,14 @@ import { appData } from "@/config";
 import dynamic from "next/dynamic";
 
 // Lazy load the sections using Next.js dynamic import
+
+const TrollSection = dynamic(
+  () => import("@/components/section/TrollSection"),
+  {
+    loading: () => null,
+  },
+);
+
 const AboutSection = dynamic(
   () => import("@/components/section/AboutSection"),
   {
@@ -43,6 +51,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className='mb-24'>
+        <TrollSection />
+      </div>
 
       <div id='about' className='mb-24'>
         <AboutSection />

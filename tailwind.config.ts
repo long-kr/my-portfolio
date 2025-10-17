@@ -16,6 +16,7 @@ export default {
         secondary: "var(--secondary-color)",
         "light-off-white": "var(--light-off-white-color)",
         "milk-white": "var(--milk-white-color)",
+        "muted-foreground": "var(--muted-foreground)",
 
         // Primary color variations
         "primary-light": "var(--primary-color-light)",

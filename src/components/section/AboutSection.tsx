@@ -5,13 +5,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui";
 import { appData } from "@/config";
 import { useIsClient } from "@/hooks";
 import { cn } from "@/lib";
+import { useTheme } from "next-themes";
 import React, { useEffect, useRef, useState } from "react";
 import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
 
 const { techs } = appData;
 
 const AboutSection = () => {
+  const { theme } = useTheme();
   const isClient = useIsClient();
+
   const parentRef = useRef<HTMLDivElement>(null);
   const childRef = useRef<HTMLDivElement>(null);
   const initialHeight = useRef<number | null>(null);
@@ -39,6 +42,8 @@ const AboutSection = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [parentRef, childRef, initialHeight]);
+
+  if (theme === "dark" || !isClient) return null;
 
   return (
     <ScrollAnimationWrapper className='grid grid-cols-1 gap-4 md:grid-cols-2'>
