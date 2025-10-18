@@ -34,7 +34,7 @@ export const IconWithToolTip: React.FC<IconWithToolTip> = ({
             className={cn(
               "text-muted px-3 py-1",
               isMoveable
-                ? "transition-transform duration-300 hover:translate-x-2 hover:translate-y-2"
+                ? "transition-transform duration-300 hover:translate-x-1 hover:translate-y-1"
                 : "",
             )}
           >

@@ -19,7 +19,7 @@ export default function TrollSection() {
               <span
                 key={index}
                 className={cn(
-                  "p-1 text-7xl font-bold text-primary",
+                  "p-1 text-8xl font-bold text-primary",
                   "inline-block transition delay-500 hover:animate-[leftToRight_1s_ease-out_forwards]",
                 )}
               >

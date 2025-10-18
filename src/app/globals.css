@@ -251,24 +251,22 @@ span {
 }
 
 @keyframes leftToRight {
-  0% {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
+60% {
+    transform: translate(20px, 0) scale(1);
+    color: #08fdd8;
+}
 
-  25% {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-
-  75% {
-    opacity: 0.5;
-    transform: translateX(20px);
-    transform: translateY(10px);
-  }
-
-  100% {
+80% {
+    transform: translate(20px, 0) scale(1);
+    color: #08fdd8;
+}
+99% {
+    transform: translate(0) scale(1.2);
+    color: #08fdd8;
+}
+100% {
+    transform: translate(0) scale(1);
     opacity: 1;
-    transform: translateX(0);
-  }
+    color: #08fdd8;
+}
 }
