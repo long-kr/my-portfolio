@@ -14,16 +14,14 @@ export const SideBarImage = ({ className }: SideBarHeaderProps) => {
   const { resolvedTheme } = useTheme();
   const isClient = useIsClient();
 
-  const src =
-    resolvedTheme === "light"
-      ? lightImage
-      : "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+  // Only show image in light mode
+  if (!isClient || resolvedTheme === "dark") return null;
 
   return (
     <div className={cn(className)}>
       {isClient && (
         <Image
-          src={src}
+          src={lightImage}
           alt='avatar'
           style={{
             objectFit: "cover",

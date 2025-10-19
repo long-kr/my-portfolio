@@ -6,7 +6,7 @@ import { appData } from "@/config";
 import { useIsClient } from "@/hooks";
 import { cn } from "@/lib";
 import { useTheme } from "next-themes";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
 
 const { techs } = appData;
@@ -15,47 +15,12 @@ const AboutSection = () => {
   const { theme } = useTheme();
   const isClient = useIsClient();
 
-  const parentRef = useRef<HTMLDivElement>(null);
-  const childRef = useRef<HTMLDivElement>(null);
-  const initialHeight = useRef<number | null>(null);
-
-  const [isOnScreen, setIsOnScreen] = useState(false);
-
-  useEffect(() => {
-    if (childRef.current && isClient)
-      initialHeight.current = childRef.current.offsetTop;
-  }, [isClient]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!childRef.current || !initialHeight.current) return;
-
-      if (initialHeight.current < window.scrollY) {
-        setIsOnScreen(true);
-      } else {
-        setIsOnScreen(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [parentRef, childRef, initialHeight]);
-
   if (theme === "dark" || !isClient) return null;
 
   return (
     <ScrollAnimationWrapper className='grid grid-cols-1 gap-4 md:grid-cols-2'>
-      <div ref={parentRef} className='relative'>
-        <Card
-          ref={childRef}
-          className={cn(
-            "lg:sticky lg:top-10",
-            "h-fit border-none shadow-none",
-            isOnScreen ? "fixed top-0 z-10" : "",
-          )}
-        >
+      <div className='relative'>
+        <Card className={cn("sticky top-0 h-fit border-none shadow-none")}>
           <CardHeader>
             <CardTitle>{appData.title}</CardTitle>
           </CardHeader>

@@ -13,6 +13,6 @@ export const SideBar: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => (
   <nav className={cn(className, "relative")}>
-    <SideBarImage className='sticky top-0 h-[8%]' />
+    <SideBarImage className='sticky top-10 h-[8%]' />
   </nav>
 );
