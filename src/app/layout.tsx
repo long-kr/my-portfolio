@@ -45,10 +45,10 @@ export default function RootLayout({
 
           <Toaster closeButton />
 
-          <div className='grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-6'>
-            <SideBar className='col-span-1' />
+          <div className='grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-9'>
+            <SideBar className='col-span-2 hidden lg:block' />
 
-            <MainContainer className='col-span-1 lg:col-span-5'>
+            <MainContainer className='col-span-1 lg:col-span-7'>
               {children}
             </MainContainer>
           </div>

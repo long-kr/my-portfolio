@@ -251,22 +251,22 @@ span {
 }
 
 @keyframes leftToRight {
-60% {
+  60% {
     transform: translate(20px, 0) scale(1);
     color: #08fdd8;
-}
+  }
 
-80% {
+  80% {
     transform: translate(20px, 0) scale(1);
     color: #08fdd8;
-}
-99% {
+  }
+  99% {
     transform: translate(0) scale(1.2);
     color: #08fdd8;
-}
-100% {
+  }
+  100% {
     transform: translate(0) scale(1);
     opacity: 1;
     color: #08fdd8;
-}
+  }
 }

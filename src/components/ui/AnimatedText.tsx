@@ -28,13 +28,11 @@ export const AnimatedText = ({
       },
       { threshold: 0.1 },
     );
-    if (node) {
-      observer.observe(node);
-    }
+
+    if (node) observer.observe(node);
+
     return () => {
-      if (node) {
-        observer.unobserve(node);
-      }
+      if (node) observer.unobserve(node);
     };
   }, []);
 
@@ -49,6 +47,7 @@ export const AnimatedText = ({
               key={`char-${char}-${index}`}
               className={cn(
                 "inline-block translate-y-4 text-neutral-900 opacity-0",
+                "hover:animate-[leftToRight_0.8s_ease-out_forwards]",
                 isVisible && "animate-[fadeInUp_0.5s_ease-out_forwards]",
               )}
               style={{

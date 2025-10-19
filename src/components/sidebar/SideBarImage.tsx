@@ -1,6 +1,5 @@
 "use client";
 
-import darkImage from "@/assets/image/sig-dark.jpg";
 import lightImage from "@/assets/image/sig.jpg";
 import { useIsClient } from "@/hooks/useIsClient";
 import { cn } from "@/lib/utils";
@@ -11,24 +10,28 @@ interface SideBarHeaderProps {
   className?: string;
 }
 
-export const SideBarHeader = ({ className }: SideBarHeaderProps) => {
+export const SideBarImage = ({ className }: SideBarHeaderProps) => {
   const { resolvedTheme } = useTheme();
   const isClient = useIsClient();
 
-  const image = resolvedTheme === "dark" ? darkImage : lightImage;
+  const src =
+    resolvedTheme === "light"
+      ? lightImage
+      : "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
   return (
-    <header className={cn(className)}>
+    <div className={cn(className)}>
       {isClient && (
         <Image
-          src={image}
-          alt="avatar"
+          src={src}
+          alt='avatar'
           style={{
-            width: "100%",
-            height: "auto",
+            objectFit: "cover",
           }}
+          priority
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         />
       )}
-    </header>
+    </div>
   );
 };

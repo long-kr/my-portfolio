@@ -35,14 +35,11 @@ export const ProjectInformation = ({
           <CardTitle className='text-2xl'>{project.name}</CardTitle>
 
           <CardDescription className='flex w-full flex-col justify-start gap-2 text-lg'>
-            <span className='font-bold'>Description:</span>{" "}
             {project.description}
           </CardDescription>
 
-          <CardFooter className='flex w-full flex-col justify-start gap-2 p-0'>
-            <div className='w-full text-start font-bold'>Technologies:</div>
-
-            <div className='flex w-full flex-wrap items-center gap-2'>
+          <CardFooter className='w-full p-0'>
+            <div className='flex w-full flex-wrap items-center justify-center gap-2'>
               {project.technologies.map((technology) => (
                 <ToolTipSVGIcon
                   key={technology}
