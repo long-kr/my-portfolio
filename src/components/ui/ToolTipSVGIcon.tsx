@@ -32,7 +32,7 @@ export const IconWithToolTip: React.FC<IconWithToolTip> = ({
           <Badge
             variant='secondary'
             className={cn(
-              "text-muted px-3 py-1",
+              "text-muted px-3 py-1 hover:shadow",
               isMoveable
                 ? "transition-transform duration-300 hover:translate-x-1 hover:translate-y-1"
                 : "",
@@ -42,7 +42,10 @@ export const IconWithToolTip: React.FC<IconWithToolTip> = ({
           </Badge>
         </TooltipTrigger>
 
-        <TooltipContent className='z-10 rounded bg-milk-white p-2 shadow-lg'>
+        <TooltipContent
+          sideOffset={10}
+          className='z-1 rounded bg-milk-white p-2 shadow-lg'
+        >
           {Icon}
         </TooltipContent>
       </Tooltip>

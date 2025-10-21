@@ -1,16 +1,9 @@
-import defaultProjectImage from "@/assets/image/Screen (30).jpg";
 import calculatorImage from "@/assets/image/calculator-project-pic.png";
 import nailzyImage from "@/assets/image/nailzy-project-pic.jpg";
 import reservationImage from "@/assets/image/reservation-project-pic.jpg";
 import movieImage from "@/assets/image/welovemovies-project-pic.jpg";
 import { iconKeys, IconKeys } from "@/assets/svg";
 import { StaticImageData } from "next/image";
-
-// ============================================================================
-// CONSTANTS
-// ============================================================================
-
-export const DEFAULT_IMAGE = defaultProjectImage;
 
 // ============================================================================
 // API ENDPOINTS
@@ -163,7 +156,4 @@ export const APP_CONFIG = {
   social: appData.social,
   projects: appData.projects,
   api: API_ENDPOINTS,
-  defaultImage: DEFAULT_IMAGE,
 } as const;
-
-// All exports are already available at the module level

@@ -45,7 +45,7 @@ export default function RootLayout({
 
           <Toaster closeButton />
 
-          <div className='grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-9'>
+          <div className='grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-10'>
             <SideBar className='col-span-2 hidden lg:block' />
 
             <MainContainer className='col-span-1 lg:col-span-7'>
