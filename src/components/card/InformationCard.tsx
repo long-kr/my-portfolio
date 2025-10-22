@@ -21,7 +21,7 @@ export const ProjectInformation = ({
   return (
     <div
       className={cn(
-        "relative flex w-full items-center justify-center overflow-hidden",
+        "relative flex w-full justify-center overflow-hidden",
         className,
       )}
     >

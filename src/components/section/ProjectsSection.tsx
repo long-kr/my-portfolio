@@ -15,11 +15,13 @@ const ProjectsSection = () => {
   if (theme === "dark" || !isClient) return null;
 
   return (
-    <ScrollAnimationWrapper className='mx-auto max-w-7xl px-4'>
-      <h2 className='mb-12 text-center text-4xl font-bold'>My Projects</h2>
+    <ScrollAnimationWrapper>
+      <div className='mb-12 text-center'>
+        <h2 className='text-4xl font-bold'>My Projects</h2>
+      </div>
 
       {/* Web */}
-      <div className='gird-cols-1 hidden w-full gap-3 md:grid'>
+      <div className='gird-cols-1 hidden w-full gap-24 md:grid'>
         {projects.map((project) => (
           <div
             key={project.name}
@@ -27,13 +29,10 @@ const ProjectsSection = () => {
           >
             <ProjectCard
               project={project}
-              className='stagger-item border-1 col-span-2 p-2 hover:shadow-sm'
+              className='stagger-item col-span-2'
             />
 
-            <ProjectInformation
-              project={project}
-              className='border-1 col-span-1 p-2 shadow-sm'
-            />
+            <ProjectInformation project={project} className='col-span-1' />
           </div>
         ))}
       </div>
