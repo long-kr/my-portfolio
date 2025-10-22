@@ -1,5 +1,5 @@
-export { AnimatedCircle } from "./AnimatedCircle";
 export { AnimatedText } from "./AnimatedText";
+export { Badge, badgeVariants } from "./Badge";
 export { Button } from "./Button";
 export {
   Card,
@@ -12,7 +12,7 @@ export {
 export { Input } from "./Input";
 export { ProgressBar } from "./ProgressBar";
 export { ScrollText } from "./ScrollText";
-export { SocialMediaButton } from "./SocialMediaButton";
+
 export { SVGIcon } from "./SVGIcon";
 export { Textarea } from "./Textarea";
 export {
@@ -21,4 +21,4 @@ export {
   TooltipProvider,
   TooltipTrigger,
 } from "./Tooltip";
-export { ToolTipSVGIcon } from "./ToolTipSVGIcon";
+export { IconWithToolTip as ToolTipSVGIcon } from "./ToolTipSVGIcon";

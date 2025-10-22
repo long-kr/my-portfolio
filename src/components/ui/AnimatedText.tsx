@@ -28,27 +28,26 @@ export const AnimatedText = ({
       },
       { threshold: 0.1 },
     );
-    if (node) {
-      observer.observe(node);
-    }
+
+    if (node) observer.observe(node);
+
     return () => {
-      if (node) {
-        observer.unobserve(node);
-      }
+      if (node) observer.unobserve(node);
     };
   }, []);
 
   return (
     <div ref={ref} className={cn("relative inline-block", className)}>
-      <div className="inline-flex">
+      <div className='inline-flex'>
         {text.split("").map((char, index) =>
           char === " " ? (
-            <span key={`space-${index}`} className="inline-block w-4" />
+            <span key={`space-${index}`} className='inline-block w-4' />
           ) : (
             <span
               key={`char-${char}-${index}`}
               className={cn(
-                "inline-block translate-y-4 text-neutral-900 opacity-0 dark:text-primary",
+                "inline-block translate-y-4 text-neutral-900 opacity-0",
+                "hover:animate-[leftToRight_0.8s_ease-out_forwards]",
                 isVisible && "animate-[fadeInUp_0.5s_ease-out_forwards]",
               )}
               style={{

@@ -1,5 +1,4 @@
-export * from './Navigation';
-export * from './navItems';
-export * from './SideBar';
-export * from './SideBarHeader';
-
+export * from "./Navigation";
+export * from "./navItems";
+export * from "./SideBar";
+export * from "./SideBarImage";

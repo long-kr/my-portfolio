@@ -1,11 +1,10 @@
 {
     "typescript.tsdk": "node_modules\\typescript\\lib",
     "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
         // "source.fixAll.eslint": true,
         "source.removeUnusedImports": "explicit",
         "source.sortImports": "explicit"
     },
-    "zencoder.enableRepoIndexing": true,
-    "chatgpt.openOnStartup": false,
 }

@@ -1,14 +1,18 @@
-import { Navigation } from "@/components/sidebar/Navigation";
 import { cn } from "@/lib/utils";
+import dynamic from "next/dynamic";
 import React from "react";
-import { SideBarHeader } from "./SideBarHeader";
+
+const SideBarImage = dynamic(
+  () => import("./SideBarImage").then((mod) => mod.SideBarImage),
+  {
+    loading: () => <div className='w-full'>Loading...</div>,
+  },
+);
 
 export const SideBar: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => (
-  <nav className={cn(className)}>
-    <SideBarHeader className="h-auto w-auto lg:p-6 xl:p-12" />
-
-    <Navigation className={cn("w-full")} />
+  <nav className={cn(className, "relative")}>
+    <SideBarImage className='sticky top-10 h-[8%]' />
   </nav>
 );
