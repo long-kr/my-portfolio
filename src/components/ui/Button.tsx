@@ -7,16 +7,29 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "default" | "sm" | "lg";
 }
 
-const baseStyles =
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background";
+const baseStyles = `inline-flex items-center justify-center rounded-md text-sm font-medium
+  transition-colors 
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 
+  disabled:opacity-50 disabled:pointer-events-none 
+  ring-offset-background`;
 
 const variants = {
-  primary:
-    "bg-primary text-milk-white hover:bg-primary-hover active:bg-primary-active",
-  secondary:
-    "bg-secondary text-primary hover:bg-secondary-hover active:bg-secondary-active",
-  light:
-    "bg-light-off-white text-primary hover:bg-light-hover active:bg-light-active",
+  primary: `inline-flex items-center justify-center whitespace-nowrap 
+    text-sm font-medium transition-all outline-none 
+    bg-primary text-light-off-white 
+    hover:bg-secondary h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 flex items-center gap-2
+    disabled:pointer-events-none disabled:opacity-50 
+    [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 
+    focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] 
+    aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive 
+    `,
+  secondary: `bg-secondary text-primary 
+    hover:bg-secondary-hover active:bg-secondary-active`,
+  light: `bg-white inline-flex h-8 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-md border px-3 
+    text-foreground outline-none transition-all 
+    hover:bg-secondary focus-visible:ring-[3px] 
+    disabled:pointer-events-none disabled:opacity-50 
+    has-[>svg]:px-2.5 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0`,
   outline:
     "border border-primary text-primary hover:bg-primary-light/20 active:bg-primary-light/30",
   ghost: "text-primary hover:bg-primary-light/20 active:bg-primary-light/30",
@@ -47,7 +60,7 @@ export const Button: React.FC<ButtonProps> = ({
       type={type}
       {...props}
     >
-      {icon && <span className="mr-2">{icon}</span>}
+      {icon && <span>{icon}</span>}
       {children}
     </button>
   );

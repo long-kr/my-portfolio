@@ -18,10 +18,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <Card
-      className={cn(
-        "w-full rounded-lg shadow-none hover:shadow-lg hover:shadow-muted-foreground",
-        className,
-      )}
+      className={cn("w-full border-none shadow-none", className)}
       {...props}
     >
       <Link
@@ -29,14 +26,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         onClick={() => track("click_link_project", { project: project.name })}
         target='_blank'
       >
-        <CardContent className='relative min-h-full w-full overflow-hidden rounded-lg'>
+        <CardContent className='relative min-h-full w-full overflow-hidden rounded-lg shadow-none hover:shadow-lg hover:shadow-muted-foreground'>
           <Image
             src={project.image}
             alt={project.name}
             fill
             placeholder='blur'
             loading='lazy'
-            // className='object-cover'
           />
         </CardContent>
       </Link>

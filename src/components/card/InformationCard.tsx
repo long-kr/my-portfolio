@@ -2,7 +2,10 @@
 
 import { Project } from "@/config";
 import { cn } from "@/lib";
+
+import { Github, SquareArrowUp } from "lucide-react";
 import {
+  Button,
   Card,
   CardContent,
   CardDescription,
@@ -38,7 +41,7 @@ export const ProjectInformation = ({
             {project.description}
           </CardDescription>
 
-          <CardFooter className='w-full p-0'>
+          <CardDescription className='flex w-full flex-col justify-start gap-2 text-lg'>
             <div className='flex w-full flex-wrap items-center justify-center gap-2'>
               {project.technologies.map((technology) => (
                 <ToolTipSVGIcon
@@ -49,6 +52,22 @@ export const ProjectInformation = ({
                 />
               ))}
             </div>
+          </CardDescription>
+
+          <CardFooter className='w-full flex-row gap-2 p-0'>
+            {project.github && (
+              <a href={project.github} target='_blank'>
+                <Button variant='light' size='sm' icon={<Github />}>
+                  Github
+                </Button>
+              </a>
+            )}
+
+            <a href={project.url} target='_blank'>
+              <Button variant='primary' icon={<SquareArrowUp />}>
+                Live
+              </Button>
+            </a>
           </CardFooter>
         </CardContent>
       </Card>

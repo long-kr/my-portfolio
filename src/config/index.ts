@@ -58,10 +58,10 @@ export type AppData = {
 export const appData: AppData = {
   name: "Long Huynh",
   title: "A Fullstack Developer",
-  description: `My name is Long Huynh and I'm a full-stack developer with a passion for optimazing performance and solving complex logical problems.
-I have experience working with a variety of technologies including React, Next.js, Tailwind CSS, Node.js, Express.js, MongoDB, PostgreSQL, and AWS. And, currently, I'm learning Java and Spring Boot to expand my backend knowledge and OOP.
-Furthermore, I enjoy learning how other developers apply different protocol and architecture to solve problems and I'm always looking for new challenges to improve my skills.
-When I'm not coding, I enjoy playing tennis, playing snowboard, and team sports like soccer, volleyball...
+  description: `My name is Long Huynh, and I'm a full-stack developer with a passion for optimizing performance and solving complex logical problems.
+I have experience working with a variety of technologies, including React, Next.js, Tailwind CSS, Node.js, Express.js, MongoDB, PostgreSQL, and AWS. I am currently learning Java and Spring Boot to expand my backend knowledge and strengthen my understanding of OOP.
+Furthermore, I enjoy learning how other developers apply different protocols and architectures to solve problems, and I am always looking for new challenges to improve my skills.
+When I’m not coding, I enjoy playing tennis, snowboarding, and team sports like soccer and volleyball.
   `,
   email: "longhuynh@gmail.com",
   phone: "+1 469 478 7181",

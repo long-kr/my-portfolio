@@ -1,4 +1,5 @@
 export { AnimatedText } from "./AnimatedText";
+export { Badge, badgeVariants } from "./Badge";
 export { Button } from "./Button";
 export {
   Card,

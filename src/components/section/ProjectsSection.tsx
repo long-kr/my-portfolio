@@ -4,7 +4,7 @@ import { ProjectCard, ProjectInformation } from "@/components/card";
 import { appData } from "@/config";
 import { useIsClient } from "@/hooks";
 import { useTheme } from "next-themes";
-import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
+import { SectionLayout } from "../layout";
 
 const ProjectsSection = () => {
   const isClient = useIsClient();
@@ -15,11 +15,7 @@ const ProjectsSection = () => {
   if (theme === "dark" || !isClient) return null;
 
   return (
-    <ScrollAnimationWrapper>
-      <div className='mb-12 text-center'>
-        <h2 className='text-4xl font-bold'>My Projects</h2>
-      </div>
-
+    <SectionLayout title='My Projects'>
       {/* Web */}
       <div className='gird-cols-1 hidden w-full gap-24 md:grid'>
         {projects.map((project) => (
@@ -29,7 +25,7 @@ const ProjectsSection = () => {
           >
             <ProjectCard
               project={project}
-              className='stagger-item col-span-2'
+              className='stagger-item col-span-2 p-6'
             />
 
             <ProjectInformation project={project} className='col-span-1' />
@@ -47,7 +43,7 @@ const ProjectsSection = () => {
           />
         ))}
       </div>
-    </ScrollAnimationWrapper>
+    </SectionLayout>
   );
 };
 

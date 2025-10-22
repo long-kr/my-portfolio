@@ -7,7 +7,7 @@ import { useIsClient } from "@/hooks";
 import { cn } from "@/lib";
 import { useTheme } from "next-themes";
 import React from "react";
-import { ScrollAnimationWrapper } from "../theme/ScrollAnimationWrapper";
+import { SectionLayout } from "../layout";
 
 const { techs } = appData;
 
@@ -18,11 +18,7 @@ const AboutSection = () => {
   if (theme === "dark" || !isClient) return null;
 
   return (
-    <ScrollAnimationWrapper>
-      <div className='mb-12 text-center'>
-        <h2 className='text-4xl font-bold'>About Me</h2>
-      </div>
-
+    <SectionLayout title='About Me'>
       <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
         <div className='relative'>
           <Card className={cn("sticky top-0 h-fit border-none shadow-none")}>
@@ -58,7 +54,7 @@ const AboutSection = () => {
           ))}
         </div>
       </div>
-    </ScrollAnimationWrapper>
+    </SectionLayout>
   );
 };
 

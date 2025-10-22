@@ -7,7 +7,7 @@ import {
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 import React from "react";
-import { Badge } from "./badge";
+import { Badge } from ".";
 
 type IconWithToolTip = {
   iconKey: IconKeys;
@@ -30,9 +30,8 @@ export const IconWithToolTip: React.FC<IconWithToolTip> = ({
       <Tooltip>
         <TooltipTrigger asChild>
           <Badge
-            variant='secondary'
             className={cn(
-              "text-muted px-3 py-1 hover:shadow",
+              "px-2 py-1 text-white hover:shadow",
               isMoveable
                 ? "transition-transform duration-300 hover:translate-x-1 hover:translate-y-1"
                 : "",
@@ -44,7 +43,7 @@ export const IconWithToolTip: React.FC<IconWithToolTip> = ({
 
         <TooltipContent
           sideOffset={10}
-          className='z-1 rounded bg-milk-white p-2 shadow-lg'
+          className='z-2 bg-milk-white-color rounded p-2 shadow-lg'
         >
           {Icon}
         </TooltipContent>
