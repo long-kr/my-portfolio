@@ -1,7 +1,6 @@
 import { MainContainer } from "@/components/container/MainContainer";
 import { SideBar } from "@/components/sidebar";
 import { ThemeToggle } from "@/components/theme";
-import { SocialMediaButton } from "@/components/ui";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
@@ -32,11 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} relative`}>
         <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
+          attribute='class'
+          defaultTheme='system'
           enableSystem
           disableTransitionOnChange
         >
@@ -46,15 +45,13 @@ export default function RootLayout({
 
           <Toaster closeButton />
 
-          <div className="grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-5">
-            <SideBar className="col-span-1" />
+          <div className='grid min-h-screen w-full grid-cols-1 antialiased lg:grid-cols-10'>
+            <SideBar className='col-span-2 hidden lg:block' />
 
-            <MainContainer className="col-span-1 lg:col-span-3">
+            <MainContainer className='col-span-1 lg:col-span-7'>
               {children}
             </MainContainer>
           </div>
-
-          <SocialMediaButton />
 
           <ThemeToggle />
         </ThemeProvider>

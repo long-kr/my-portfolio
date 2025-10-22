@@ -8,12 +8,12 @@ export const BottomContainer = () => {
   };
 
   return (
-    <footer className="flex justify-center py-16">
+    <footer className='flex justify-center py-16'>
       <Button
         onClick={handleClick}
         icon={<span>↑</span>}
-        className="hover:text-secondary"
-        variant="ghost"
+        className='hover:text-secondary'
+        variant='ghost'
       >
         Back to top
       </Button>
