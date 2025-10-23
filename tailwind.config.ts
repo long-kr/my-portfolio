@@ -11,6 +11,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Custom colors
+        "light-off-white": "var(--light-off-white-color)",
+        "milk-white": "var(--milk-white-color)",
+
         // Core theme
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -39,12 +43,6 @@ export default {
         "input-background": "var(--input-background)",
         "switch-background": "var(--switch-background)",
         ring: "var(--ring)",
-
-        // Your named brand colors (optional)
-        "primary-color": "var(--primary-color)",
-        "secondary-color": "var(--secondary-color)",
-        "light-off-white-color": "var(--light-off-white-color)",
-        "milk-white-color": "var(--milk-white-color)",
 
         // Charts
         "chart-1": "var(--chart-1)",

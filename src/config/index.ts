@@ -3,6 +3,7 @@ import nailzyImage from "@/assets/image/nailzy-project-pic.jpg";
 import reservationImage from "@/assets/image/reservation-project-pic.jpg";
 import movieImage from "@/assets/image/welovemovies-project-pic.jpg";
 import { iconKeys, IconKeys } from "@/assets/svg";
+import { Github, Linkedin, StickyNote } from "lucide-react";
 import { StaticImageData } from "next/image";
 
 // ============================================================================
@@ -21,6 +22,7 @@ export type Social = {
   name: string;
   url: string;
   icon: IconKeys;
+  lucidIcon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
 export type Project = {
@@ -71,11 +73,19 @@ When I’m not coding, I enjoy playing tennis, snowboarding, and team sports lik
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/longh-dn/",
       icon: "linkedin" as IconKeys,
+      lucidIcon: Linkedin,
     },
     {
       name: "GitHub",
       url: "https://github.com/long-kr",
       icon: "github" as IconKeys,
+      lucidIcon: Github,
+    },
+    {
+      name: "Resume",
+      url: "https://docs.google.com/document/d/1Onp4-3ylau5gGXQMt2ob_-h9Gd3SJL81D99dLVbb83s/edit?usp=sharing",
+      icon: "resume" as IconKeys,
+      lucidIcon: StickyNote,
     },
   ],
   techs: {

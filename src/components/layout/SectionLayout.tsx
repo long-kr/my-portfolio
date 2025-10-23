@@ -10,7 +10,7 @@ export const SectionLayout = ({
   return (
     <ScrollAnimationWrapper>
       <div className='mb-12 text-center'>
-        <h2 className='text-3xl font-semibold'>{title}</h2>
+        <h3 className='text-3xl font-semibold'>{title}</h3>
       </div>
 
       {children}

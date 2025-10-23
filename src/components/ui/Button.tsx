@@ -7,17 +7,17 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "default" | "sm" | "lg";
 }
 
-const baseStyles = `inline-flex items-center justify-center rounded-md text-sm font-medium
-  transition-colors 
+const baseStyles = `inline-flex items-center justify-center rounded-md 
+  transition-all
   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 
   disabled:opacity-50 disabled:pointer-events-none 
   ring-offset-background`;
 
 const variants = {
   primary: `inline-flex items-center justify-center whitespace-nowrap 
-    text-sm font-medium transition-all outline-none 
-    bg-primary text-light-off-white 
-    hover:bg-secondary h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 flex items-center gap-2
+    outline-none 
+    bg-primary text-white
+    hover:bg-secondary rounded-md gap-1.5 has-[>svg]:px-2.5 flex items-center gap-2
     disabled:pointer-events-none disabled:opacity-50 
     [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 
     focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] 
@@ -25,8 +25,8 @@ const variants = {
     `,
   secondary: `bg-secondary text-primary 
     hover:bg-secondary-hover active:bg-secondary-active`,
-  light: `bg-white inline-flex h-8 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-md border px-3 
-    text-foreground outline-none transition-all 
+  light: `bg-white inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-md border
+    text-foreground outline-none
     hover:bg-secondary focus-visible:ring-[3px] 
     disabled:pointer-events-none disabled:opacity-50 
     has-[>svg]:px-2.5 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0`,
@@ -36,9 +36,9 @@ const variants = {
 };
 
 const sizes = {
-  default: "h-10 py-2 px-4",
-  sm: "h-9 px-3",
-  lg: "h-11 px-8",
+  default: "h-6 md:h-10 py-2 px-4 text-sm font-medium",
+  sm: "h-5 md:h-9 px-3 text-sm font-small",
+  lg: "h-10 md:h-11 px-8",
 };
 
 export const Button: React.FC<ButtonProps> = ({
