@@ -46,7 +46,7 @@ export const AnimatedText = ({
             <span
               key={`char-${char}-${index}`}
               className={cn(
-                "inline-block translate-y-4 text-neutral-900 opacity-0",
+                "inline-block translate-y-4 opacity-0",
                 "hover:animate-[leftToRight_0.8s_ease-out_forwards]",
                 isVisible && "animate-[fadeInUp_0.5s_ease-out_forwards]",
               )}
