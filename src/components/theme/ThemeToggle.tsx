@@ -11,14 +11,14 @@ export function ThemeToggle({ className }: Readonly<{ className?: string }>) {
   return (
     <div className={cn("fixed bottom-4 right-4 z-50", className)}>
       <Button
-        variant="ghost"
-        size="sm"
+        variant='ghost'
+        size='sm'
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className="w-9 px-0"
+        className='w-9 px-0'
       >
-        <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-        <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-        <span className="sr-only">Toggle theme</span>
+        <Sun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all hover:scale-125 dark:-rotate-90 dark:scale-0' />
+        <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 text-white transition-all dark:rotate-0 dark:scale-100 dark:hover:scale-125' />
+        <span className='sr-only'>Toggle theme</span>
       </Button>
     </div>
   );

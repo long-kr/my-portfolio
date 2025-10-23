@@ -107,32 +107,20 @@ h1 {
   color: var(--foreground);
 }
 
-h2,
 h3,
-h4,
-h5,
-h6 {
+h5 {
   color: var(--foreground);
 }
 
-p {
+h2,
+h4,
+h6 p {
   color: var(--muted-foreground);
 }
 
 .dark html,
 .dark body {
   background-color: var(--background);
-}
-
-.dark h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span {
-  color: var(--foreground);
 }
 
 /* -------------------------------- */
