@@ -46,7 +46,7 @@ export default function IntroSection() {
               <Button variant='primary'>About me</Button>
             </a>
 
-            <a href='projects'>
+            <a href='#projects'>
               <Button variant='light'>View works</Button>
             </a>
           </div>
