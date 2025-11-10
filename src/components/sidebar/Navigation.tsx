@@ -1,6 +1,6 @@
 "use client";
 
-import navItems from "@/components/sidebar/navItems";
+import { navItems } from "@/config";
 import { useIsClient } from "@/hooks/useIsClient";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -50,9 +50,9 @@ export const Navigation = ({ className }: NavigationProps) => {
         className,
       )}
     >
-      <ul className="flex flex-row justify-between sm:justify-evenly lg:flex-col">
+      <ul className='flex flex-row justify-between sm:justify-evenly lg:flex-col'>
         {navItems.map((item) => (
-          <li className="lg:pb-5 lg:pt-0" key={item.title}>
+          <li className='lg:pb-5 lg:pt-0' key={item.title}>
             <Link
               className={cn(
                 "font-bold transition-all duration-200 hover:font-normal hover:text-secondary",

@@ -59,11 +59,11 @@ export type AppData = {
 
 export const appData: AppData = {
   name: "Long Huynh",
-  title: "A Fullstack Developer",
+  title: "A Bit About Me",
   description: `My name is Long Huynh, and I'm a full-stack developer with a passion for optimizing performance and solving complex logical problems.
-I have experience working with a variety of technologies, including React, Next.js, Tailwind CSS, Node.js, Express.js, MongoDB, PostgreSQL, and AWS. I am currently learning Java and Spring Boot to expand my backend knowledge and strengthen my understanding of OOP.
+I have experience working with a variety of technologies, including React, Next.js, Tailwind CSS, Node.js, Express.js, Spring Boot, MongoDB, PostgreSQL, and AWS. 
 Furthermore, I enjoy learning how other developers apply different protocols and architectures to solve problems, and I am always looking for new challenges to improve my skills.
-When I’m not coding, I enjoy playing tennis, snowboarding, and team sports like soccer and volleyball.
+Lets connect to solve your problems together!
   `,
   email: "longhuynh@gmail.com",
   phone: "+1 469 478 7181",
@@ -167,3 +167,18 @@ export const APP_CONFIG = {
   projects: appData.projects,
   api: API_ENDPOINTS,
 } as const;
+
+export const navItems = [
+  {
+    title: "Home",
+    link: "./",
+  },
+  {
+    title: "About",
+    link: "/#about",
+  },
+  {
+    title: "Project",
+    link: "/#project",
+  },
+];

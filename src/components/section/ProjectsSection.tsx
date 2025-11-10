@@ -1,6 +1,6 @@
 "use client";
 
-import { ProjectCard, ProjectInformation } from "@/components/card";
+import { ProjectImage, ProjectInformation } from "@/components/card";
 import { appData } from "@/config";
 import { useIsClient } from "@/hooks";
 import { useTheme } from "next-themes";
@@ -21,11 +21,11 @@ const ProjectsSection = () => {
         {projects.map((project) => (
           <div
             key={project.name}
-            className='col-span-1 grid max-h-[540px] min-h-[540px] grid-cols-3'
+            className='col-span-1 grid max-h-[540px] min-h-[540px] grid-cols-3 gap-2'
           >
-            <ProjectCard
+            <ProjectImage
               project={project}
-              className='stagger-item col-span-2 p-6'
+              className='stagger-item col-span-2'
             />
 
             <ProjectInformation project={project} className='col-span-1' />

@@ -1,3 +1,3 @@
 export { ProjectInformation } from "./InformationCard";
-export { ProjectCard } from "./ProjectCard";
+export { ProjectImage } from "./ProjectCard";
 export { TechnologiCard } from "./TechnologiCard";

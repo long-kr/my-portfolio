@@ -47,10 +47,6 @@ export default function Home() {
       <div id='project' className='mb-24 py-16'>
         <ProjectsSection />
       </div>
-
-      {/* <div id="contact" className="mb-24 py-16">
-        <ContactSection />
-      </div> */}
     </>
   );
 }
