@@ -1,4 +1,4 @@
-import { appData } from "@/config";
+import { appData, navItems } from "@/config";
 import { cn } from "@/lib";
 import { ArrowDown } from "lucide-react";
 import { AnimatedText, Button } from "../ui";
@@ -42,11 +42,21 @@ export default function IntroSection() {
           </h2>
 
           <div className='flex flex-row justify-center gap-6'>
-            <a href='#about'>
+            <a
+              href={
+                navItems.find((item) => item.title === "About me")?.link ||
+                "#about"
+              }
+            >
               <Button variant='primary'>About me</Button>
             </a>
 
-            <a href='#projects'>
+            <a
+              href={
+                navItems.find((item) => item.title === "Projects")?.link ||
+                "#project"
+              }
+            >
               <Button variant='light'>View works</Button>
             </a>
           </div>

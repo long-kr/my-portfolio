@@ -7,11 +7,11 @@ import { track } from "@vercel/analytics";
 import Image from "next/image";
 import Link from "next/link";
 
-type ProjectCardProps = React.ComponentProps<typeof Card> & {
+type ProjectImageProps = React.ComponentProps<typeof Card> & {
   project: Project;
 };
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({
+export const ProjectImage: React.FC<ProjectImageProps> = ({
   className,
   project,
   ...props
@@ -26,7 +26,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         onClick={() => track("click_link_project", { project: project.name })}
         target='_blank'
       >
-        <CardContent className='relative min-h-full w-full overflow-hidden rounded-lg shadow-none hover:shadow-lg hover:shadow-muted-foreground'>
+        <CardContent className='relative min-h-full w-full overflow-hidden rounded-lg shadow-none hover:shadow-md hover:shadow-muted-foreground'>
           <Image
             src={project.image}
             alt={project.name}
