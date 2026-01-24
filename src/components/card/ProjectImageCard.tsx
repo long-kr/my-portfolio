@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui";
+import { Card } from "@/components/ui";
 import { Project } from "@/config";
 import { cn } from "@/lib/utils";
 import { track } from "@vercel/analytics";
@@ -18,7 +18,10 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
 }) => {
   return (
     <Card
-      className={cn("w-full border-none shadow-none", className)}
+      className={cn(
+        "relative w-full overflow-hidden rounded-lg border-none p-6 shadow-none hover:shadow-md hover:shadow-muted-foreground",
+        className,
+      )}
       {...props}
     >
       <Link
@@ -26,17 +29,15 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
         onClick={() => track("click_link_project", { project: project.name })}
         target='_blank'
       >
-        <CardContent className='relative overflow-hidden rounded-lg shadow-none hover:shadow-md hover:shadow-muted-foreground'>
-          <Image
-            src={project.image}
-            alt={project.name}
-            width={800}
-            height={1200}
-            className='h-auto w-full'
-            placeholder='blur'
-            loading='lazy'
-          />
-        </CardContent>
+        <Image
+          src={project.image}
+          alt={project.name}
+          width={800}
+          height={1200}
+          className='h-auto w-full transition-transform duration-300 ease-in-out hover:scale-105'
+          placeholder='blur'
+          loading='lazy'
+        />
       </Link>
     </Card>
   );
