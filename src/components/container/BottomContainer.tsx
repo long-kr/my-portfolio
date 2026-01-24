@@ -11,7 +11,6 @@ export const BottomContainer = () => {
     <footer className='flex justify-center py-16'>
       <Button
         onClick={handleClick}
-        icon={<span>↑</span>}
         className='hover:text-secondary'
         variant='ghost'
       >
