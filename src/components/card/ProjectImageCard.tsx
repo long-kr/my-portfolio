@@ -26,11 +26,13 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
         onClick={() => track("click_link_project", { project: project.name })}
         target='_blank'
       >
-        <CardContent className='relative min-h-full w-full overflow-hidden rounded-lg shadow-none hover:shadow-md hover:shadow-muted-foreground'>
+        <CardContent className='relative overflow-hidden rounded-lg shadow-none hover:shadow-md hover:shadow-muted-foreground'>
           <Image
             src={project.image}
             alt={project.name}
-            fill
+            width={800}
+            height={1200}
+            className='h-auto w-full'
             placeholder='blur'
             loading='lazy'
           />

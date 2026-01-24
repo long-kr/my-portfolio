@@ -21,12 +21,9 @@ const ProjectsSection = () => {
         {projects.map((project) => (
           <div
             key={project.name}
-            className='col-span-1 grid max-h-[540px] min-h-[540px] grid-cols-3 gap-2'
+            className='col-span-1 grid grid-cols-3 items-stretch gap-6'
           >
-            <ProjectImage
-              project={project}
-              className='stagger-item col-span-2'
-            />
+            <ProjectImage project={project} className='col-span-2' />
 
             <ProjectInformation project={project} className='col-span-1' />
           </div>
