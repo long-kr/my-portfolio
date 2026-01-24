@@ -29,15 +29,11 @@ export const ProjectInformation = ({
     >
       {/* Content */}
       <Card className='relative flex w-full flex-col items-center gap-6 border-none px-6 py-6 shadow-none md:px-0'>
-        <CardTitle className='w-full text-left text-2xl'>
-          {project.name}
-        </CardTitle>
+        <CardTitle>{project.name}</CardTitle>
 
-        <CardDescription className='flex w-full flex-col justify-start gap-2 text-lg'>
-          {project.description}
-        </CardDescription>
+        <CardDescription>{project.description}</CardDescription>
 
-        <CardDescription className='flex w-full flex-col justify-start gap-2 text-lg'>
+        <CardDescription>
           <div className='flex w-full flex-wrap items-center gap-2'>
             {project.technologies.map((technology) => (
               <ToolTipSVGIcon
@@ -50,7 +46,7 @@ export const ProjectInformation = ({
           </div>
         </CardDescription>
 
-        <CardFooter className='just w-full flex-row gap-2 p-0'>
+        <CardFooter className='gap-2 p-0'>
           {project.github && (
             <a href={project.github} target='_blank' rel='noreferrer'>
               <Button variant='light' size='sm' icon={<Github />}>
