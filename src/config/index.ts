@@ -152,22 +152,6 @@ Lets connect to solve your problems together!
   ],
 };
 
-// ============================================================================
-// APPLICATION CONFIGURATION
-// ============================================================================
-
-export const APP_CONFIG = {
-  name: appData.name,
-  title: appData.title,
-  description: appData.description,
-  email: appData.email,
-  phone: appData.phone,
-  location: appData.location,
-  social: appData.social,
-  projects: appData.projects,
-  api: API_ENDPOINTS,
-} as const;
-
 export const navItems = [
   {
     title: "Home",
